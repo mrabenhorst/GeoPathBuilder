@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A3E559214D9B35B00E79F1D /* GPTrackSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */; };
+		5A3E559314D9B35B00E79F1D /* GPTrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E559114D9B35B00E79F1D /* GPTrackSegment.m */; };
+		5A3E559714D9B50000E79F1D /* GPTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3E559514D9B50000E79F1D /* GPTrack.h */; };
+		5A3E559814D9B50000E79F1D /* GPTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E559614D9B50000E79F1D /* GPTrack.m */; };
+		5AB0A7B114D97C850035388D /* GPRoutePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB0A7AF14D97C850035388D /* GPRoutePoint.h */; };
+		5AB0A7B214D97C850035388D /* GPRoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0A7B014D97C850035388D /* GPRoutePoint.m */; };
+		5AB0A7B614D97D3E0035388D /* GPPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB0A7B414D97D3E0035388D /* GPPath.h */; };
+		5AB0A7B714D97D3E0035388D /* GPPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0A7B514D97D3E0035388D /* GPPath.m */; };
+		5AB0A7BB14D97EC00035388D /* GPRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB0A7B914D97EC00035388D /* GPRoute.h */; };
+		5AB0A7BC14D97EC00035388D /* GPRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0A7BA14D97EC00035388D /* GPRoute.m */; };
+		5AB0A7BF14D983540035388D /* GPCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB0A7BD14D983540035388D /* GPCollection.h */; };
+		5AB0A7C014D983540035388D /* GPCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0A7BE14D983540035388D /* GPCollection.m */; };
+		5AB0A7C314D9B2550035388D /* GPTrackPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB0A7C114D9B2540035388D /* GPTrackPoint.h */; };
+		5AB0A7C414D9B2550035388D /* GPTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0A7C214D9B2550035388D /* GPTrackPoint.m */; };
+		5AF8C14414D87DB700958790 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14314D87DB700958790 /* Foundation.framework */; };
+		5AF8C15214D87DB700958790 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C15114D87DB700958790 /* SenTestingKit.framework */; };
+		5AF8C15414D87DB700958790 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C15314D87DB700958790 /* UIKit.framework */; };
+		5AF8C15514D87DB700958790 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14314D87DB700958790 /* Foundation.framework */; };
+		5AF8C15814D87DB700958790 /* libGeoPathBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */; };
+		5AF8C15E14D87DB700958790 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF8C15C14D87DB700958790 /* InfoPlist.strings */; };
+		5AF8C16114D87DB700958790 /* GeoPathBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C16014D87DB700958790 /* GeoPathBuilderTests.m */; };
+		5AF8C16F14D8803200958790 /* GPGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C16D14D8803200958790 /* GPGeoPoint.h */; };
+		5AF8C17014D8803200958790 /* GPGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C16E14D8803200958790 /* GPGeoPoint.m */; };
+		5AF8C17314D8864100958790 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C17214D8864100958790 /* CoreLocation.framework */; };
+		5AF8C17714D8880500958790 /* GPWaypoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C17514D8880500958790 /* GPWaypoint.h */; };
+		5AF8C17814D8880500958790 /* GPWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C17614D8880500958790 /* GPWaypoint.m */; };
+		5AF8C17A14D8891000958790 /* GPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C17914D8891000958790 /* GPConstants.h */; };
+		5AF8C17D14D88B1100958790 /* GPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C17B14D88B1100958790 /* GPUtilities.h */; };
+		5AF8C17E14D88B1100958790 /* GPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C17C14D88B1100958790 /* GPUtilities.m */; };
+		5AF8C17F14D89C0E00958790 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C17214D8864100958790 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AF8C15614D87DB700958790 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AF8C13714D87DB700958790 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AF8C13F14D87DB700958790;
+			remoteInfo = GeoPathBuilder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrackSegment.h; path = Paths/GPTrackSegment.h; sourceTree = "<group>"; };
+		5A3E559114D9B35B00E79F1D /* GPTrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTrackSegment.m; path = Paths/GPTrackSegment.m; sourceTree = "<group>"; };
+		5A3E559514D9B50000E79F1D /* GPTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrack.h; path = Paths/GPTrack.h; sourceTree = "<group>"; };
+		5A3E559614D9B50000E79F1D /* GPTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTrack.m; path = Paths/GPTrack.m; sourceTree = "<group>"; };
+		5AB0A7AF14D97C850035388D /* GPRoutePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPRoutePoint.h; path = GeoPoints/GPRoutePoint.h; sourceTree = "<group>"; };
+		5AB0A7B014D97C850035388D /* GPRoutePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPRoutePoint.m; path = GeoPoints/GPRoutePoint.m; sourceTree = "<group>"; };
+		5AB0A7B414D97D3E0035388D /* GPPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPPath.h; path = Paths/GPPath.h; sourceTree = "<group>"; };
+		5AB0A7B514D97D3E0035388D /* GPPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPPath.m; path = Paths/GPPath.m; sourceTree = "<group>"; };
+		5AB0A7B914D97EC00035388D /* GPRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPRoute.h; path = Paths/GPRoute.h; sourceTree = "<group>"; };
+		5AB0A7BA14D97EC00035388D /* GPRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPRoute.m; path = Paths/GPRoute.m; sourceTree = "<group>"; };
+		5AB0A7BD14D983540035388D /* GPCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPCollection.h; sourceTree = "<group>"; };
+		5AB0A7BE14D983540035388D /* GPCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPCollection.m; sourceTree = "<group>"; };
+		5AB0A7C114D9B2540035388D /* GPTrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrackPoint.h; path = GeoPoints/GPTrackPoint.h; sourceTree = "<group>"; };
+		5AB0A7C214D9B2550035388D /* GPTrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTrackPoint.m; path = GeoPoints/GPTrackPoint.m; sourceTree = "<group>"; };
+		5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGeoPathBuilder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF8C14314D87DB700958790 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5AF8C14714D87DB700958790 /* GeoPathBuilder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoPathBuilder-Prefix.pch"; sourceTree = "<group>"; };
+		5AF8C15014D87DB700958790 /* GeoPathBuilderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoPathBuilderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF8C15114D87DB700958790 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5AF8C15314D87DB700958790 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5AF8C15B14D87DB700958790 /* GeoPathBuilderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeoPathBuilderTests-Info.plist"; sourceTree = "<group>"; };
+		5AF8C15D14D87DB700958790 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AF8C15F14D87DB700958790 /* GeoPathBuilderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoPathBuilderTests.h; sourceTree = "<group>"; };
+		5AF8C16014D87DB700958790 /* GeoPathBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoPathBuilderTests.m; sourceTree = "<group>"; };
+		5AF8C16D14D8803200958790 /* GPGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGeoPoint.h; sourceTree = "<group>"; };
+		5AF8C16E14D8803200958790 /* GPGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGeoPoint.m; sourceTree = "<group>"; };
+		5AF8C17214D8864100958790 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5AF8C17514D8880500958790 /* GPWaypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPWaypoint.h; path = GeoPoints/GPWaypoint.h; sourceTree = "<group>"; };
+		5AF8C17614D8880500958790 /* GPWaypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPWaypoint.m; path = GeoPoints/GPWaypoint.m; sourceTree = "<group>"; };
+		5AF8C17914D8891000958790 /* GPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
+		5AF8C17B14D88B1100958790 /* GPUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUtilities.h; path = Utilities/GPUtilities.h; sourceTree = "<group>"; };
+		5AF8C17C14D88B1100958790 /* GPUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUtilities.m; path = Utilities/GPUtilities.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AF8C13D14D87DB700958790 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C17314D8864100958790 /* CoreLocation.framework in Frameworks */,
+				5AF8C14414D87DB700958790 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF8C14C14D87DB700958790 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C17F14D89C0E00958790 /* CoreLocation.framework in Frameworks */,
+				5AF8C15214D87DB700958790 /* SenTestingKit.framework in Frameworks */,
+				5AF8C15414D87DB700958790 /* UIKit.framework in Frameworks */,
+				5AF8C15514D87DB700958790 /* Foundation.framework in Frameworks */,
+				5AF8C15814D87DB700958790 /* libGeoPathBuilder.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AB0A7B814D97D430035388D /* Paths */ = {
+			isa = PBXGroup;
+			children = (
+				5AB0A7B414D97D3E0035388D /* GPPath.h */,
+				5AB0A7B514D97D3E0035388D /* GPPath.m */,
+				5AB0A7B914D97EC00035388D /* GPRoute.h */,
+				5AB0A7BA14D97EC00035388D /* GPRoute.m */,
+				5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */,
+				5A3E559114D9B35B00E79F1D /* GPTrackSegment.m */,
+				5A3E559514D9B50000E79F1D /* GPTrack.h */,
+				5A3E559614D9B50000E79F1D /* GPTrack.m */,
+			);
+			name = Paths;
+			sourceTree = "<group>";
+		};
+		5AF8C13514D87DB700958790 = {
+			isa = PBXGroup;
+			children = (
+				5AF8C14514D87DB700958790 /* GeoPathBuilder */,
+				5AF8C15914D87DB700958790 /* GeoPathBuilderTests */,
+				5AF8C14214D87DB700958790 /* Frameworks */,
+				5AF8C14114D87DB700958790 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AF8C14114D87DB700958790 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */,
+				5AF8C15014D87DB700958790 /* GeoPathBuilderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AF8C14214D87DB700958790 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C17214D8864100958790 /* CoreLocation.framework */,
+				5AF8C14314D87DB700958790 /* Foundation.framework */,
+				5AF8C15114D87DB700958790 /* SenTestingKit.framework */,
+				5AF8C15314D87DB700958790 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AF8C14514D87DB700958790 /* GeoPathBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C17B14D88B1100958790 /* GPUtilities.h */,
+				5AF8C17C14D88B1100958790 /* GPUtilities.m */,
+				5AF8C17914D8891000958790 /* GPConstants.h */,
+				5AF8C17414D887AC00958790 /* GeoPoints */,
+				5AB0A7B814D97D430035388D /* Paths */,
+				5AF8C14614D87DB700958790 /* Supporting Files */,
+				5AB0A7BD14D983540035388D /* GPCollection.h */,
+				5AB0A7BE14D983540035388D /* GPCollection.m */,
+			);
+			path = GeoPathBuilder;
+			sourceTree = "<group>";
+		};
+		5AF8C14614D87DB700958790 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C14714D87DB700958790 /* GeoPathBuilder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AF8C15914D87DB700958790 /* GeoPathBuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C15F14D87DB700958790 /* GeoPathBuilderTests.h */,
+				5AF8C16014D87DB700958790 /* GeoPathBuilderTests.m */,
+				5AF8C15A14D87DB700958790 /* Supporting Files */,
+			);
+			path = GeoPathBuilderTests;
+			sourceTree = "<group>";
+		};
+		5AF8C15A14D87DB700958790 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AF8C15B14D87DB700958790 /* GeoPathBuilderTests-Info.plist */,
+				5AF8C15C14D87DB700958790 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AF8C17414D887AC00958790 /* GeoPoints */ = {
+			isa = PBXGroup;
+			children = (
+				5AB0A7AF14D97C850035388D /* GPRoutePoint.h */,
+				5AB0A7B014D97C850035388D /* GPRoutePoint.m */,
+				5AF8C16D14D8803200958790 /* GPGeoPoint.h */,
+				5AF8C16E14D8803200958790 /* GPGeoPoint.m */,
+				5AF8C17514D8880500958790 /* GPWaypoint.h */,
+				5AF8C17614D8880500958790 /* GPWaypoint.m */,
+				5AB0A7C114D9B2540035388D /* GPTrackPoint.h */,
+				5AB0A7C214D9B2550035388D /* GPTrackPoint.m */,
+			);
+			name = GeoPoints;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5AF8C13E14D87DB700958790 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C16F14D8803200958790 /* GPGeoPoint.h in Headers */,
+				5AF8C17714D8880500958790 /* GPWaypoint.h in Headers */,
+				5AF8C17A14D8891000958790 /* GPConstants.h in Headers */,
+				5AF8C17D14D88B1100958790 /* GPUtilities.h in Headers */,
+				5AB0A7B114D97C850035388D /* GPRoutePoint.h in Headers */,
+				5AB0A7B614D97D3E0035388D /* GPPath.h in Headers */,
+				5AB0A7BB14D97EC00035388D /* GPRoute.h in Headers */,
+				5AB0A7BF14D983540035388D /* GPCollection.h in Headers */,
+				5AB0A7C314D9B2550035388D /* GPTrackPoint.h in Headers */,
+				5A3E559214D9B35B00E79F1D /* GPTrackSegment.h in Headers */,
+				5A3E559714D9B50000E79F1D /* GPTrack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5AF8C13F14D87DB700958790 /* GeoPathBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF8C16414D87DB700958790 /* Build configuration list for PBXNativeTarget "GeoPathBuilder" */;
+			buildPhases = (
+				5AF8C13C14D87DB700958790 /* Sources */,
+				5AF8C13D14D87DB700958790 /* Frameworks */,
+				5AF8C13E14D87DB700958790 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoPathBuilder;
+			productName = GeoPathBuilder;
+			productReference = 5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5AF8C14F14D87DB700958790 /* GeoPathBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF8C16714D87DB700958790 /* Build configuration list for PBXNativeTarget "GeoPathBuilderTests" */;
+			buildPhases = (
+				5AF8C14B14D87DB700958790 /* Sources */,
+				5AF8C14C14D87DB700958790 /* Frameworks */,
+				5AF8C14D14D87DB700958790 /* Resources */,
+				5AF8C14E14D87DB700958790 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AF8C15714D87DB700958790 /* PBXTargetDependency */,
+			);
+			name = GeoPathBuilderTests;
+			productName = GeoPathBuilderTests;
+			productReference = 5AF8C15014D87DB700958790 /* GeoPathBuilderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AF8C13714D87DB700958790 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Intl Mapping";
+			};
+			buildConfigurationList = 5AF8C13A14D87DB700958790 /* Build configuration list for PBXProject "GeoPathBuilder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5AF8C13514D87DB700958790;
+			productRefGroup = 5AF8C14114D87DB700958790 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AF8C13F14D87DB700958790 /* GeoPathBuilder */,
+				5AF8C14F14D87DB700958790 /* GeoPathBuilderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AF8C14D14D87DB700958790 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C15E14D87DB700958790 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AF8C14E14D87DB700958790 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AF8C13C14D87DB700958790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C17014D8803200958790 /* GPGeoPoint.m in Sources */,
+				5AF8C17814D8880500958790 /* GPWaypoint.m in Sources */,
+				5AF8C17E14D88B1100958790 /* GPUtilities.m in Sources */,
+				5AB0A7B214D97C850035388D /* GPRoutePoint.m in Sources */,
+				5AB0A7B714D97D3E0035388D /* GPPath.m in Sources */,
+				5AB0A7BC14D97EC00035388D /* GPRoute.m in Sources */,
+				5AB0A7C014D983540035388D /* GPCollection.m in Sources */,
+				5AB0A7C414D9B2550035388D /* GPTrackPoint.m in Sources */,
+				5A3E559314D9B35B00E79F1D /* GPTrackSegment.m in Sources */,
+				5A3E559814D9B50000E79F1D /* GPTrack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AF8C14B14D87DB700958790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF8C16114D87DB700958790 /* GeoPathBuilderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AF8C15714D87DB700958790 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AF8C13F14D87DB700958790 /* GeoPathBuilder */;
+			targetProxy = 5AF8C15614D87DB700958790 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AF8C15C14D87DB700958790 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AF8C15D14D87DB700958790 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AF8C16214D87DB700958790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5AF8C16314D87DB700958790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AF8C16514D87DB700958790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/GeoPathBuilder.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeoPathBuilder/GeoPathBuilder-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5AF8C16614D87DB700958790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/GeoPathBuilder.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeoPathBuilder/GeoPathBuilder-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5AF8C16814D87DB700958790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeoPathBuilder/GeoPathBuilder-Prefix.pch";
+				INFOPLIST_FILE = "GeoPathBuilderTests/GeoPathBuilderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5AF8C16914D87DB700958790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeoPathBuilder/GeoPathBuilder-Prefix.pch";
+				INFOPLIST_FILE = "GeoPathBuilderTests/GeoPathBuilderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AF8C13A14D87DB700958790 /* Build configuration list for PBXProject "GeoPathBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF8C16214D87DB700958790 /* Debug */,
+				5AF8C16314D87DB700958790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AF8C16414D87DB700958790 /* Build configuration list for PBXNativeTarget "GeoPathBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF8C16514D87DB700958790 /* Debug */,
+				5AF8C16614D87DB700958790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AF8C16714D87DB700958790 /* Build configuration list for PBXNativeTarget "GeoPathBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF8C16814D87DB700958790 /* Debug */,
+				5AF8C16914D87DB700958790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AF8C13714D87DB700958790 /* Project object */;
+}
