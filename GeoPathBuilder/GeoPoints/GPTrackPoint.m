@@ -1,17 +1,16 @@
 //
-//  GPRoutePoint.m
+//  GPTrackPoint.m
 //  GeoPathBuilder
 //
 //  Created by Mark Rabenhorst on 2/1/12.
 //  Copyright (c) 2012 Intl Mapping. All rights reserved.
 //
 
-#import "GPRoutePoint.h"
-#import "GPGeoPoint.h"
+#import "GPTrackPoint.h"
 #import "GPUtilities.h"
 #import "GPConstants.h"
 
-@implementation GPRoutePoint
+@implementation GPTrackPoint
 
 - (NSString*)getGPXString {
     
@@ -33,10 +32,9 @@
     NSDictionary *pointAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%f",self.location.latitude],kGPXTAG_LATITUDE, [NSString stringWithFormat:@"%f",self.location.longitude], kGPXTAG_LONGITUDE, nil];
     
     // Add the tag data into the main tag 
-    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_ROUTEPT attributes:pointAttributes andValue:GPXDataString useCDATA:FALSE]];
+    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_TRACKPT attributes:pointAttributes andValue:GPXDataString useCDATA:FALSE]];
     
     return GPXTagString;
 }
-
 
 @end

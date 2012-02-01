@@ -1,36 +1,29 @@
 //
-//  GPRoute.h
+//  GPTrack.h
 //  GeoPathBuilder
 //
 //  Created by Mark Rabenhorst on 2/1/12.
 //  Copyright (c) 2012 Intl Mapping. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "GPPath.h"
-#import "GPRoutePoint.h"
+#import "GPTrackSegment.h"
 
-@interface GPRoute : GPPath {
-    NSMutableArray *geoPoints;
+@interface GPTrack : GPPath {
+    NSMutableArray *segments;
 }
 
 -(id)init;
 
 /*
- * Convienince class for creating a path. Will not add any type of point 
- * in array except if it is of class type "GPRoutePoint"
- */
-- (id)initWithName: (NSString*) pathName andPoints: (NSArray*) points;
-
-/*
  * Always adds point to array of GPRoutePoints
  */
-- (void)addPoint: (GPRoutePoint*) point;
+- (void)addSegment: (GPTrackSegment*) segment;
 
 /*
  * Returns TRUE if point is found and removed, FALSE if point isn't found
  */
-- (BOOL)removePoint: (GPRoutePoint*) point;
+- (BOOL)removeSegment: (GPTrackSegment*) segment;
 
 /*
  * Returns a string version of the Waypoint in GPX format

@@ -13,6 +13,11 @@
 
 @implementation GPRoute
 
+-(id)init {
+    geoPoints = [[NSMutableArray alloc] init];
+    return self;
+}
+
 -(id)initWithName: (NSString*) pathName andPoints: (NSArray*) points {
     
     [self setName:pathName];
@@ -43,13 +48,13 @@
     NSMutableString *GPXDataString = [[[NSMutableString alloc] initWithString:@""] autorelease];
     
     // If attribute exists, add the tag. If not, don't do anything
-    [self name] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_NAME atttributes:nil andValue:self.name useCDATA:FALSE]] : nil;
-    [self comment] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_COMMENT atttributes:nil andValue:self.comment useCDATA:TRUE]] : nil;
-    [self description] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_DESCRIPTION atttributes:nil andValue:self.description useCDATA:TRUE]] : nil;
-    [self src] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_SOURCE atttributes:nil andValue:self.src useCDATA:FALSE]] : nil;
-    [self url] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_URL atttributes:nil andValue:self.url useCDATA:FALSE]] : nil;
-    [self urlname] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_URLNAME atttributes:nil andValue:self.urlname useCDATA:FALSE]] : nil;
-    [self number] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_ELEVATION atttributes:nil andValue:[NSString stringWithFormat:@"%f",self.number] useCDATA:FALSE]] : nil;
+    [self name] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_NAME attributes:nil andValue:self.name useCDATA:FALSE]] : nil;
+    [self comment] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_COMMENT attributes:nil andValue:self.comment useCDATA:TRUE]] : nil;
+    [self description] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_DESCRIPTION attributes:nil andValue:self.description useCDATA:TRUE]] : nil;
+    [self src] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_SOURCE attributes:nil andValue:self.src useCDATA:FALSE]] : nil;
+    [self url] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_URL attributes:nil andValue:self.url useCDATA:FALSE]] : nil;
+    [self urlname] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_URLNAME attributes:nil andValue:self.urlname useCDATA:FALSE]] : nil;
+    [self number] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_NUMBER attributes:nil andValue:[NSString stringWithFormat:@"%f",self.number] useCDATA:FALSE]] : nil;
     
     // Get the GPX String of each point
     for( int i = 0; i < [geoPoints count]; i++ ) {
@@ -57,7 +62,7 @@
     }
     
     // Add the tag data into the main tag 
-    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_WAYPOINT atttributes:nil andValue:GPXDataString useCDATA:FALSE]];
+    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_ROUTE attributes:nil andValue:GPXDataString useCDATA:FALSE]];
     
     return GPXTagString;
 }

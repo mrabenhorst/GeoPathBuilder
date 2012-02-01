@@ -12,17 +12,27 @@
 /*
  * Structs
 */
-struct GPBounds {
+typedef struct {
     double west;
     double east;
     double north;
     double south;
-};
+} GPBounds;
 
 /*
  *  GPX CONSTANTS
 */
-#define kGPX_SCHEMA_VERSION     1.1
+
+#define kGPX_SCHEMA_VERSION     @"1.1"
+
+#define kGPXTAG_MASTER          @"gpx"
+
+#define kGPX_SCHEMA_LOC_ATTR    @"xsi:schemaLocation"
+#define kGPX_SCHEMA_LOC_VAL     @"http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd"
+#define kGPX_XSI_ATTR           @"xmlns:xsi"
+#define kGPX_XSI_VAL            @"http://www.w3.org/2001/XMLSchema-instance"
+#define kGPX_XMLNS_ATTR         @"xmlns:"
+#define kGPX_XMLNS_VAL          @"http://www.topografix.com/GPX/1/0"
 
 #define kGPXTAG_NAME            @"name"
 #define kGPXTAG_DESCRIPTION     @"desc"
@@ -35,6 +45,7 @@ struct GPBounds {
 #define kGPXTAG_TIME            @"time"
 #define kGPXTAG_KEYWORDS        @"keywords"
 #define kGPXTAG_BOUNDS          @"bounds"
+#define kGPXTAG_NUMBER          @"number"
 
 #define kGPXTAG_LATITUDE        @"lat"
 #define kGPXTAG_LONGITUDE       @"lon"
@@ -50,5 +61,8 @@ struct GPBounds {
 #define kGPXTAG_WAYPOINT        @"wpt"
 #define kGPXTAG_ROUTE           @"rte"
 #define kGPXTAG_ROUTEPT         @"rtept"
+#define kGPXTAG_TRACK           @"trk"
+#define kGPXTAG_TRACKSEG        @"trkseg"
+#define kGPXTAG_TRACKPT         @"trkpt"
 
 #endif

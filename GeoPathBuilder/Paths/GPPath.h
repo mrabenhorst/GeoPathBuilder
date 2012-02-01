@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GPPath : NSObject {
-    NSMutableArray *geoPoints;
+    
 }
 
 @property (nonatomic, retain) NSString *name;
@@ -19,8 +19,6 @@
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSString *urlname;
 @property (nonatomic) double *number;
-
--(id)init;
 
 
 @end

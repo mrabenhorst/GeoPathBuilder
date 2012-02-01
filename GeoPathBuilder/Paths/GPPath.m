@@ -21,9 +21,6 @@
 @synthesize urlname;
 @synthesize number;
 
--(id)init {
-    geoPoints = [[NSMutableArray alloc] init];
-    return self;
-}
+
 
 @end

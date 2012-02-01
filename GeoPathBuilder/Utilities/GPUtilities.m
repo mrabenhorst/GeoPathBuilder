@@ -7,10 +7,11 @@
 //
 
 #import "GPUtilities.h"
+#import "GPConstants.h"
 
 @implementation GPUtilities
 
-+ (NSString*)createTagWithName: (NSString*)tagName atttributes: (NSDictionary*)attributes andValue: (NSString*)value useCDATA: (BOOL) cdata {
++ (NSString*)createTagWithName: (NSString*)tagName attributes: (NSDictionary*)attributes andValue: (NSString*)value useCDATA: (BOOL) cdata {
     NSString *tagString;
     NSMutableString *attributesString = [NSMutableString stringWithString:@""];
     
@@ -36,6 +37,10 @@
     [UTCDateFormat setDateFormat:@"yyyy-MM-DD'T'HH:MM:SS'Z'"];
     [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     return [UTCDateFormat stringFromDate:date];
+}
+
++ (NSString*)GPBoundsToGPXFormat: (GPBounds) bounds {
+    return [NSString stringWithFormat:@"minlat=\"%f\" minlon=\"%f\" maxlat=\"%f\" maxlon=\"%f\"", bounds.south, bounds.east, bounds.north, bounds.west];
 }
 
 @end
