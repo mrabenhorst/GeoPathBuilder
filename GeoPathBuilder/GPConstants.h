@@ -31,7 +31,7 @@ typedef struct {
 #define kGPX_SCHEMA_LOC_VAL     @"http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd"
 #define kGPX_XSI_ATTR           @"xmlns:xsi"
 #define kGPX_XSI_VAL            @"http://www.w3.org/2001/XMLSchema-instance"
-#define kGPX_XMLNS_ATTR         @"xmlns:"
+#define kGPX_XMLNS_ATTR         @"xmlns"
 #define kGPX_XMLNS_VAL          @"http://www.topografix.com/GPX/1/0"
 
 #define kGPXTAG_NAME            @"name"
