@@ -51,8 +51,11 @@
     [testTrack setName:@"Test Track"];
     [testTrack addSegment:trackSeg];
     [testGPXFile addTrack:testTrack];
-    NSLog(@"%@",[testGPXFile getGPXString]);
+    NSString *gpxFileString = [testGPXFile getGPXString];
     
+    NSArray *tags = [NSArray arrayWithArray:[GPUtilities getValueAndAttributesFromString:gpxFileString withTag:@"gpx"]];
+    
+
 }
 
 @end
