@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'GeoPathBuilder' target in the 'GeoPathBuilder' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import "GPGeoPoint.h"
+#endif
