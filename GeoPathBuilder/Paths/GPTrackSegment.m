@@ -39,7 +39,7 @@
     }
     
     // Add the tag data into the main tag 
-    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_TRACKSEG attributes:nil andValue:GPXDataString useCDATA:FALSE]];
+    NSString *GPXTagString = [NSString stringWithString:[GPUtilities createTagWithName:kGPXTAG_TRACKSEG attributeVals:nil attributeKeys:nil andValue:GPXDataString useCDATA:FALSE]];
     
     return GPXTagString;
 }
