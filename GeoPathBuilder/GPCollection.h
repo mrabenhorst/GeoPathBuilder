@@ -31,6 +31,7 @@
 @property (nonatomic) GPBounds bounds;
 
 -(id)initWithCreator: (NSString*) creator;
++(id)getCollectionFromGPXFile: (NSData*) gpxFileData;
 
 /*
  * Returns a string version of the Waypoint in GPX format
@@ -63,7 +64,7 @@
 /*
  * To code:
  */
-- (void)fromGPXString;
+
 
 - (NSString*)getKMLString;
 - (void)fromKMLString;

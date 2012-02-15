@@ -11,20 +11,18 @@
 
 @implementation GPUtilities
 
-+ (NSString*)createTagWithName: (NSString*)tagName attributes: (NSDictionary*)attributes andValue: (NSString*)value useCDATA: (BOOL) cdata {
++ (NSString*)createTagWithName: (NSString*)tagName attributeVals: values attributeKeys: keys andValue: (NSString*)value useCDATA: (BOOL) cdata {
     NSString *tagString;
     NSMutableString *attributesString = [NSMutableString stringWithString:@""];
     
-    if( attributes != nil ) {
-        NSArray *values = [NSArray arrayWithArray:[attributes allValues]];
-        NSArray *keys = [NSArray arrayWithArray:[attributes allKeys]];
+    if( values != nil && keys != nil ) {
         for( int i = 0; i < [values count]; i++ ) {
             [attributesString appendFormat:@" %@=\"%@\"", [keys objectAtIndex:i], [values objectAtIndex:i]];
         }
     }
     
     if( cdata ) {
-        tagString = [[NSString alloc] initWithFormat:@"<%@%@><![CDATA[%@]]</%@>",tagName,attributesString,value,tagName];
+        tagString = [[NSString alloc] initWithFormat:@"<%@%@><![CDATA[%@]]></%@>",tagName,attributesString,value,tagName];
     } else {
         tagString = [[NSString alloc] initWithFormat:@"<%@%@>%@</%@>",tagName,attributesString,value,tagName];
     }
@@ -128,13 +126,260 @@
 
 + (NSString*)dateToGPXFormat: (NSDate*)date {
     NSDateFormatter *UTCDateFormat = [NSDateFormatter new];
-    [UTCDateFormat setDateFormat:@"yyyy-MM-DD'T'HH:MM:SS'Z'"];
+    [UTCDateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     return [UTCDateFormat stringFromDate:date];
+}
+
++ (NSDate*)dateFromGPXFormat: (NSString*) dateString {
+    NSDateFormatter *UTCDateFormat = [[NSDateFormatter alloc] init];
+    [UTCDateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    [UTCDateFormat setCalendar:[[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease]];
+    [UTCDateFormat setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
+    NSLog(@"%@", [UTCDateFormat dateFromString:dateString]);
+    return [UTCDateFormat dateFromString:dateString];
 }
 
 + (NSString*)GPBoundsToGPXFormat: (GPBounds) bounds {
     return [NSString stringWithFormat:@"minlat=\"%f\" minlon=\"%f\" maxlat=\"%f\" maxlon=\"%f\"", bounds.south, bounds.east, bounds.north, bounds.west];
 }
+
++ (GPXTag)getGPXTagForGPXTagName:(NSString*) tagName {
+    
+    
+    // Objects
+    
+    if( [tagName isEqualToString:kGPXTAG_MASTER] ) {
+        return keGPX_MASTER;
+    } else if ( [tagName isEqualToString:kGPXTAG_WAYPOINT] ) {
+        return keGPX_WAYPOINT;
+    } else if ( [tagName isEqualToString:kGPXTAG_ROUTE] ) {
+        return keGPX_ROUTE;
+    } else if ( [tagName isEqualToString:kGPXTAG_ROUTEPT] ) {
+        return keGPX_ROUTEPT;
+    } else if ( [tagName isEqualToString:kGPXTAG_TRACK] ) {
+        return keGPX_TRACK;
+    } else if ( [tagName isEqualToString:kGPXTAG_TRACKSEG] ) {
+        return keGPX_TRACKSEG;
+    } else if ( [tagName isEqualToString:kGPXTAG_TRACKPT] ) {
+        return keGPX_TRACKPT;
+    }
+    
+    
+    // Attributes
+    
+    
+    
+    
+    // Properties
+    
+    else if ( [tagName isEqualToString:kGPXTAG_NAME] ) {
+        return keGPX_NAME;
+    } else if ( [tagName isEqualToString:kGPXTAG_DESCRIPTION] ) {
+        return keGPX_DESCRIPTION;
+    } else if ( [tagName isEqualToString:kGPXTAG_CREATOR] ) {
+        return keGPX_CREATOR;
+    } else if ( [tagName isEqualToString:kGPXTAG_VERSION] ) {
+        return keGPX_VERSION;
+    } else if ( [tagName isEqualToString:kGPXTAG_AUTHOR] ) {
+        return keGPX_AUTHOR;
+    } else if ( [tagName isEqualToString:kGPXTAG_EMAIL] ) {
+        return keGPX_EMAIL;
+    } else if ( [tagName isEqualToString:kGPXTAG_URL] ) {
+        return keGPX_URL;
+    } else if ( [tagName isEqualToString:kGPXTAG_URLNAME] ) {
+        return keGPX_URLNAME;
+    } else if ( [tagName isEqualToString:kGPXTAG_TIME] ) {
+        return keGPX_TIME;
+    } else if ( [tagName isEqualToString:kGPXTAG_KEYWORDS] ) {
+        return keGPX_KEYWORDS;
+    } else if ( [tagName isEqualToString:kGPXTAG_BOUNDS] ) {
+        return keGPX_BOUNDS;
+    } else if ( [tagName isEqualToString:kGPXTAG_NUMBER] ) {
+        return keGPX_NUMBER;
+    } else if ( [tagName isEqualToString:kGPXTAG_LATITUDE] ) {
+        return keGPX_LATITUDE;
+    } else if ( [tagName isEqualToString:kGPXTAG_LONGITUDE] ) {
+        return keGPX_LONGITUDE;
+    } else if ( [tagName isEqualToString:kGPXTAG_ELEVATION] ) {
+        return keGPX_ELEVATION;
+    } else if ( [tagName isEqualToString:kGPXTAG_COURSE] ) {
+        return keGPX_COURSE;
+    } else if ( [tagName isEqualToString:kGPXTAG_SPEED] ) {
+        return keGPX_SPEED;
+    } else if ( [tagName isEqualToString:kGPXTAG_COMMENT] ) {
+        return keGPX_COMMENT;
+    } else if ( [tagName isEqualToString:kGPXTAG_SOURCE] ) {
+        return keGPX_SOURCE;
+    } else if ( [tagName isEqualToString:kGPXTAG_SYMBOL] ) {
+        return keGPX_SYMBOL;
+    } else if ( [tagName isEqualToString:kGPXTAG_TYPE] ) {
+        return keGPX_TYPE;
+    }
+    
+    else return -1;
+}
+
++ (GPXElementType)getGPXElementTypeByName:(NSString*) elementName {
+    switch ( [GPUtilities getGPXTagForGPXTagName:elementName] ) {
+        
+        /* 
+         * Objects
+         */
+        case keGPX_MASTER:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_WAYPOINT:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_ROUTE:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_ROUTEPT:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_TRACK:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_TRACKSEG:
+            return keGPX_OBJECT;
+            break;
+        case keGPX_TRACKPT:
+            return keGPX_OBJECT;
+            break;
+            
+        /* 
+         * Attributes
+         */
+        case keGPX_SCHEMA_VERSION:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_SCHEMA_LOC_ATTR:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_SCHEMA_LOC_VAL:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_XSI_ATTR:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_XSI_VAL:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_XMLNS_ATTR:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_XMLNS_VAL:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_MINLAT:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_MAXLAT:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_MINLON:
+            return keGPX_ATTRIBUTE;
+            break;
+        case keGPX_MAXLON:
+            return keGPX_ATTRIBUTE;
+            break;
+            
+        /* 
+         * Properties
+         */
+        case keGPX_NAME:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_DESCRIPTION:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_CREATOR:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_VERSION:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_AUTHOR:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_EMAIL:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_URL:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_URLNAME:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_TIME:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_KEYWORDS:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_BOUNDS:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_NUMBER:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_LATITUDE:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_LONGITUDE:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_ELEVATION:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_COURSE:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_SPEED:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_COMMENT:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_SOURCE:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_SYMBOL:
+            return keGPX_PROPERTY;
+            break;
+        case keGPX_TYPE:
+            return keGPX_PROPERTY;
+            break;
+    } 
+    
+    return -1;
+}
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
 
 @end

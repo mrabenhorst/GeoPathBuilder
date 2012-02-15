@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString *src;
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSString *urlname;
-@property (nonatomic) double *number;
+@property (nonatomic) double number;
 
 
 @end

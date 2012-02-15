@@ -12,7 +12,7 @@
 @interface GPUtilities : NSObject
 
 // General Utilities
-+ (NSString*)createTagWithName: (NSString*)tagName attributes: (NSDictionary*)attributes andValue: (NSString*)value useCDATA: (BOOL) cdata;
++ (NSString*)createTagWithName: (NSString*)tagName attributeVals: values attributeKeys: keys andValue: (NSString*)value useCDATA: (BOOL) cdata;
 
 // Returns an array of dictionaries - one for each tag found.
 //      Dictionary:
@@ -22,6 +22,10 @@
 
 // GPX Utilities
 + (NSString*)dateToGPXFormat: (NSDate*)date;
++ (NSDate*)dateFromGPXFormat: (NSString*) dateString;
+
 + (NSString*)GPBoundsToGPXFormat: (GPBounds) bounds;
++ (GPXTag)getGPXTagForGPXTagName:(NSString*) tagName;
++ (GPXElementType)getGPXElementTypeByName:(NSString*) elementName;
 
 @end
