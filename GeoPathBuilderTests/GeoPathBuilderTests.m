@@ -59,7 +59,7 @@
     NSString *gpxFileLocation = [path stringByAppendingPathComponent:@"mystic_basin_trail.gpx"];
     NSData *gpxFileData = [NSData dataWithContentsOfFile:gpxFileLocation];
     
-    GPCollection *fromGPX = [GPCollection getCollectionFromGPXFile:gpxFileData];
+    GPCollection *fromGPX = [GPCollection newCollectionFromGPXFile:gpxFileData];
     
 
 }
