@@ -13,9 +13,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "-getGPXString"
-         landmarkType = "5">
+         endingLineNumber = "19">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -27,9 +25,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "89"
-         endingLineNumber = "89"
-         landmarkName = "-getGPXString"
-         landmarkType = "5">
+         endingLineNumber = "89">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -41,9 +37,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-testExample"
-         landmarkType = "5">
+         endingLineNumber = "40">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -55,9 +49,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "98"
-         endingLineNumber = "98"
-         landmarkName = "-getGPXString"
-         landmarkType = "5">
+         endingLineNumber = "98">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -69,9 +61,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "107"
-         endingLineNumber = "107"
-         landmarkName = "-getGPXString"
-         landmarkType = "5">
+         endingLineNumber = "107">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -83,9 +73,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-addRoute:"
-         landmarkType = "5">
+         endingLineNumber = "48">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -97,9 +85,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-testExample"
-         landmarkType = "5">
+         endingLineNumber = "54">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -111,9 +97,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "+getValueAndAttributesFromString:withTag:"
-         landmarkType = "5">
+         endingLineNumber = "61">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -125,9 +109,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "72"
-         endingLineNumber = "72"
-         landmarkName = "+getValueAndAttributesFromString:withTag:"
-         landmarkType = "5">
+         endingLineNumber = "72">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -139,9 +121,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "87"
-         endingLineNumber = "87"
-         landmarkName = "+getValueAndAttributesFromString:withTag:"
-         landmarkType = "5">
+         endingLineNumber = "87">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -153,9 +133,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "126"
-         endingLineNumber = "126"
-         landmarkName = "+getValueAndAttributesFromString:withTag:"
-         landmarkType = "5">
+         endingLineNumber = "126">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -167,9 +145,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-testExample"
-         landmarkType = "5">
+         endingLineNumber = "57">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -181,9 +157,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "+getValueAndAttributesFromString:withTag:"
-         landmarkType = "5">
+         endingLineNumber = "119">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
