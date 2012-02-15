@@ -118,7 +118,7 @@
     return GPXTagString;
 }
 
-+(id)getCollectionFromGPXFile: (NSData*) gpxFileData {
++(id)newCollectionFromGPXFile: (NSData*) gpxFileData {
     
     NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:gpxFileData];
     GPGPXLoader *gpxLoader = [[GPGPXLoader alloc] init];
