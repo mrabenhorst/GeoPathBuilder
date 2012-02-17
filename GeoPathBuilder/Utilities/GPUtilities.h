@@ -28,4 +28,5 @@
 + (GPXTag)getGPXTagForGPXTagName:(NSString*) tagName;
 + (GPXElementType)getGPXElementTypeByName:(NSString*) elementName;
 
++ (NSString*)getUUID;
 @end

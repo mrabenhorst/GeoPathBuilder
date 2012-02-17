@@ -357,7 +357,11 @@
     return -1;
 }
        
-       
+
++(NSString*)getUUID {
+    CFUUIDRef myUUID = CFUUIDCreate(CFAllocatorGetDefault());
+    return [NSString stringWithFormat:@"%@", (CFUUIDCreateString(CFAllocatorGetDefault(), myUUID))];
+}
        
        
        
