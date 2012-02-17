@@ -20,6 +20,7 @@
 @synthesize url;
 @synthesize urlname;
 @synthesize number;
+@synthesize UUID;
 
 
 

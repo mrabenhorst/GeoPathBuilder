@@ -7,6 +7,7 @@
 //
 
 #import "GPGeoPoint.h"
+#import "GPUtilities.h"
 
 @implementation GPGeoPoint
 
@@ -26,9 +27,13 @@
 @synthesize symbol;
 @synthesize type;
 
+@synthesize UUID;
+
 - (id)initWithCoordinate: (CLLocationCoordinate2D) locPoint {
     
     [self setLocation:locPoint];
+    
+    [self setUUID:[GPUtilities getUUID]];
     
     return self;
     
@@ -41,6 +46,8 @@
     [self setSpeed:[loc speed]];
     [self setTime:[loc timestamp]];
     [self setElevation:[loc altitude]];
+
+    [self setUUID:[GPUtilities getUUID]];
     
     return self;
 }

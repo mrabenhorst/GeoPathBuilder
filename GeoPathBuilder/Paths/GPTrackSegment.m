@@ -13,9 +13,30 @@
 
 @implementation GPTrackSegment 
 
+@synthesize UUID;
+
 -(id)init {
     trackPoints = [[NSMutableArray alloc] init];
+    
+    [self setUUID:[GPUtilities getUUID]];
+    
     return self;
+}
+
+- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+    
+    NSObject *match;
+    BOOL matchFound = false;
+    
+    for( int i = 0;(i < [trackPoints count] && matchFound != true); i++ ) {
+        if( [[[trackPoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [trackPoints objectAtIndex:i];
+            matchFound = true;
+        }
+    }
+    
+    return match;
+    
 }
 
 -(void)addPoint: (GPTrackPoint*) point {

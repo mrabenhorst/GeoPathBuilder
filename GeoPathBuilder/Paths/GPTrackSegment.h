@@ -13,6 +13,8 @@
     NSMutableArray *trackPoints;
 }
 
+@property (nonatomic, retain) NSString *UUID;
+
 -(id)init;
 -(void)addPoint: (GPTrackPoint*) point;
 -(BOOL)removePoint: (GPTrackPoint*) point;

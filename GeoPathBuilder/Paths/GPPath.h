@@ -12,6 +12,8 @@
     
 }
 
+- (NSObject*)getObjectWithUUID: (NSString*) UUID;
+
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *comment;
 @property (nonatomic, retain) NSString *description;
@@ -19,6 +21,7 @@
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSString *urlname;
 @property (nonatomic) double number;
+@property (nonatomic, retain) NSString *UUID;
 
 
 @end

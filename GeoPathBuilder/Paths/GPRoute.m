@@ -15,6 +15,9 @@
 
 -(id)init {
     geoPoints = [[NSMutableArray alloc] init];
+    
+    [self setUUID:[GPUtilities getUUID]];
+    
     return self;
 }
 
@@ -23,11 +26,29 @@
     [self setName:pathName];
     geoPoints = [[NSMutableArray alloc] init];
     
+    [self setUUID:[GPUtilities getUUID]];
+    
     for( int i = 0; i < [points count]; i++ ) {
         [[points objectAtIndex:i] isKindOfClass:[GPRoutePoint class]] ? [geoPoints addObject:[points objectAtIndex:i]] : nil;
     }
     
     return self;
+}
+
+- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+    
+    NSObject *match;
+    BOOL matchFound = false;
+    
+    for( int i = 0;(i < [geoPoints count] && matchFound != true); i++ ) {
+        if( [[[geoPoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [geoPoints objectAtIndex:i];
+            matchFound = true;
+        }
+    }
+    
+    return match;
+    
 }
 
 - (void)addPoint: (GPRoutePoint*) point {

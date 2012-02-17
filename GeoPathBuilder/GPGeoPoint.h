@@ -29,6 +29,7 @@
 @property (nonatomic, retain) NSString       *urlname;
 @property (nonatomic, retain) NSString       *symbol;
 @property (nonatomic, retain) NSString       *type;
+@property (nonatomic, retain) NSString       *UUID;
 
 
 - (id)initWithCoordinate: (CLLocationCoordinate2D) locPoint;

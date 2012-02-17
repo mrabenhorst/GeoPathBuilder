@@ -15,7 +15,30 @@
 
 -(id)init {
     segments = [[NSMutableArray alloc] init];
+    [self setUUID:[GPUtilities getUUID]];
+    
     return self;
+}
+
+- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+    
+    NSObject *match;
+    BOOL matchFound = false;
+    
+    for( int i = 0;(i < [segments count] && matchFound != true); i++ ) {
+        if( [[[segments objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [segments objectAtIndex:i];
+            matchFound = true;
+        } else {
+            if( !match ) {
+                match = [[segments objectAtIndex:i] getObjectWithUUID:UUID];
+                matchFound = true;
+            }
+        }
+    }
+    
+    return match;
+    
 }
 
 - (void)addSegment: (GPTrackSegment*) segment {

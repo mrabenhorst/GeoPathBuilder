@@ -34,6 +34,46 @@
     return self;
 }
 
+- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+    
+    NSObject *match;
+    BOOL matchFound = false;
+    
+    for( int i = 0;(i < [waypoints count] && matchFound != true); i++ ) {
+        if( [[[waypoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [waypoints objectAtIndex:i];
+            matchFound = true;
+        }
+    }
+    
+    for( int i = 0;(i < [routes count] && matchFound != true); i++ ) {
+        if( [[[routes objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [routes objectAtIndex:i];
+            matchFound = true;
+        } else {
+            if( !match ) {
+                match = [[routes objectAtIndex:i] getObjectWithUUID:UUID];
+                matchFound = true;
+            }
+        }
+    }
+    
+    for( int i = 0;(i < [tracks count] && matchFound != true); i++ ) {
+        if( [[[tracks objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [tracks objectAtIndex:i];
+            matchFound = true;
+        } else {
+            if( !match ) {
+                match = [[tracks objectAtIndex:i] getObjectWithUUID:UUID];
+                matchFound = true;
+            }
+        }
+    }
+    
+    return match;
+    
+}
+
 -(void)addWaypoint: (GPWaypoint*) waypoint {
     [waypoints addObject:waypoint];
 }
@@ -45,6 +85,42 @@
         return FALSE;
     }
 }
+
+-(NSArray*)getWaypointsWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive {
+    
+    NSMutableArray *matches = [NSMutableArray array];
+    
+    for( int i = 0; i < [waypoints count]; i++ ) {
+        if( caseInsensitive ) {
+            // case insensitive match
+            if( [[nameToMatch lowercaseString] isEqualToString:[[[waypoints objectAtIndex:i] name] lowercaseString]] ) {
+                [matches addObject:[waypoints objectAtIndex:i]];
+            }
+        } else {
+            if( [nameToMatch isEqualToString:[[waypoints objectAtIndex:i] name]] ) {
+                [matches addObject:[waypoints objectAtIndex:i]];
+            }
+        }
+    }
+    
+    return matches;
+    
+}
+
+-(GPWaypoint*)getWaypointWithUUID: (NSString*) UUID {
+    
+    GPWaypoint *match;
+    
+    for( int i = 0; i < [waypoints count]; i++ ) {
+        if( [[[waypoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [waypoints objectAtIndex:i];
+        }
+    }
+    
+    return match;
+    
+}
+
 -(void)addRoute: (GPRoute*) route {
     [routes addObject:route];
 }
@@ -55,6 +131,43 @@
     } else {
         return FALSE;
     }
+}
+
+
+-(NSArray*)getRoutesWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive {
+    
+    NSMutableArray *matches = [NSMutableArray array];
+    
+    for( int i = 0; i < [routes count]; i++ ) {
+        if( caseInsensitive ) {
+            // case insensitive match
+            if( [[nameToMatch lowercaseString] isEqualToString:[[[routes objectAtIndex:i] name] lowercaseString]] ) {
+                [matches addObject:[routes objectAtIndex:i]];
+            }
+        } else {
+            if( [nameToMatch isEqualToString:[[routes objectAtIndex:i] name]] ) {
+                [matches addObject:[routes objectAtIndex:i]];
+            }
+        }
+    }
+    
+    return matches;
+    
+}
+
+
+-(GPWaypoint*)getRouteWithUUID: (NSString*) UUID {
+    
+    GPWaypoint *match;
+    
+    for( int i = 0; i < [routes count]; i++ ) {
+        if( [[[routes objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [routes objectAtIndex:i];
+        }
+    }
+    
+    return match;
+    
 }
 
 -(void)addTrack: (GPTrack*) track {
@@ -68,6 +181,39 @@
     } else {
         return FALSE;
     }
+}
+
+// Returns all tracks with a name based on case sensitivity
+-(NSArray*)getTracksWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive {
+    NSMutableArray *matches = [NSMutableArray array];
+    
+    for( int i = 0; i < [tracks count]; i++ ) {
+        if( caseInsensitive ) {
+            // case insensitive match
+            if( [[nameToMatch lowercaseString] isEqualToString:[[[tracks objectAtIndex:i] name] lowercaseString]] ) {
+                [matches addObject:[tracks objectAtIndex:i]];
+            }
+        } else {
+            if( [nameToMatch isEqualToString:[[tracks objectAtIndex:i] name]] ) {
+                [matches addObject:[tracks objectAtIndex:i]];
+            }
+        }
+    }
+    
+    return matches;
+}
+
+// Returns the track with matching UUID or nil if there are no matches
+-(GPWaypoint*)getTrackWithUUID: (NSString*) UUID {
+    GPWaypoint *match;
+    
+    for( int i = 0; i < [tracks count]; i++ ) {
+        if( [[[tracks objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+            match = [tracks objectAtIndex:i];
+        }
+    }
+    
+    return match;
 }
 
 
