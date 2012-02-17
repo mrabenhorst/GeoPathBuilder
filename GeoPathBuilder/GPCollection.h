@@ -37,7 +37,7 @@
 // Returns a string version of the GPCollection in GPX format
 - (NSString*)getGPXString;
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID;
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID;
 
 /*******
  *
@@ -100,7 +100,7 @@
  */
 
 
-- (NSString*)getKMLString;
-- (void)fromKMLString;
+//- (NSString*)getKMLString;
+//- (void)fromKMLString;
 
 @end

@@ -35,13 +35,13 @@
     return self;
 }
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
     NSObject *match;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [geoPoints count] && matchFound != true); i++ ) {
-        if( [[[geoPoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        if( [[[geoPoints objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [geoPoints objectAtIndex:i];
             matchFound = true;
         }

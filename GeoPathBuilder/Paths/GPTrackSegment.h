@@ -16,6 +16,9 @@
 @property (nonatomic, retain) NSString *UUID;
 
 -(id)init;
+
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID;
+
 -(void)addPoint: (GPTrackPoint*) point;
 -(BOOL)removePoint: (GPTrackPoint*) point;
 
@@ -25,9 +28,8 @@
 /*
  * To code:
  */
-- (void)fromGPXString;
 
-- (NSString*)getKMLString;
-- (void)fromKMLString;
+//- (NSString*)getKMLString;
+//- (void)fromKMLString;
 
 @end

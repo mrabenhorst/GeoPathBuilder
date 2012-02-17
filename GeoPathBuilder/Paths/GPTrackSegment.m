@@ -23,13 +23,13 @@
     return self;
 }
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
     NSObject *match;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [trackPoints count] && matchFound != true); i++ ) {
-        if( [[[trackPoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        if( [[[trackPoints objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [trackPoints objectAtIndex:i];
             matchFound = true;
         }

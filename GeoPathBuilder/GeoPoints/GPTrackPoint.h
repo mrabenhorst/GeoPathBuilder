@@ -18,9 +18,7 @@
 /*
  * To code:
  */
-- (void)fromGPXString;
-
-- (NSString*)getKMLString;
-- (void)fromKMLString;
+//- (NSString*)getKMLString;
+//- (void)fromKMLString;
 
 @end

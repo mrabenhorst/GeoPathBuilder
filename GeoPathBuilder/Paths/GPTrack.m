@@ -20,19 +20,23 @@
     return self;
 }
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
     NSObject *match;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [segments count] && matchFound != true); i++ ) {
-        if( [[[segments objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        // Check the segment's UUID
+        if( [[[segments objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [segments objectAtIndex:i];
             matchFound = true;
         } else {
+            // Check the points in the segment
             if( !match ) {
-                match = [[segments objectAtIndex:i] getObjectWithUUID:UUID];
-                matchFound = true;
+                match = [[segments objectAtIndex:i] getObjectWithUUID:matchUUID];
+                if( match ) {
+                    matchFound = true;
+                }
             }
         }
     }

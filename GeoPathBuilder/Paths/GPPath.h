@@ -12,8 +12,6 @@
     
 }
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID;
-
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *comment;
 @property (nonatomic, retain) NSString *description;

@@ -26,46 +26,50 @@
 @synthesize keywords;
 @synthesize bounds;
 
--(id)initWithCreator: (NSString*) creator {
+-(id)initWithCreator: (NSString*) theCreator {
     waypoints = [[NSMutableArray alloc] init];
     routes = [[NSMutableArray alloc] init];
     tracks = [[NSMutableArray alloc] init];
-    [self setCreator:creator];
+    [self setCreator:theCreator];
     return self;
 }
 
-- (NSObject*)getObjectWithUUID: (NSString*) UUID {
+- (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
-    NSObject *match;
+    NSObject *match = nil;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [waypoints count] && matchFound != true); i++ ) {
-        if( [[[waypoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        if( [[[waypoints objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [waypoints objectAtIndex:i];
             matchFound = true;
         }
     }
     
     for( int i = 0;(i < [routes count] && matchFound != true); i++ ) {
-        if( [[[routes objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        if( [[[routes objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [routes objectAtIndex:i];
             matchFound = true;
         } else {
             if( !match ) {
-                match = [[routes objectAtIndex:i] getObjectWithUUID:UUID];
+                match = [[routes objectAtIndex:i] getObjectWithUUID:matchUUID];
                 matchFound = true;
             }
         }
     }
     
     for( int i = 0;(i < [tracks count] && matchFound != true); i++ ) {
-        if( [[[tracks objectAtIndex:i] UUID] isEqualToString:UUID] ) {
+        // Check the track's UUID
+        if( [[[tracks objectAtIndex:i] UUID] isEqualToString:matchUUID] ) {
             match = [tracks objectAtIndex:i];
             matchFound = true;
         } else {
+            // Track the track segments in the track
             if( !match ) {
-                match = [[tracks objectAtIndex:i] getObjectWithUUID:UUID];
-                matchFound = true;
+                match = [[tracks objectAtIndex:i] getObjectWithUUID:matchUUID];
+                if( match ) {
+                    matchFound = true;
+                }
             }
         }
     }

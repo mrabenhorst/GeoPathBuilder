@@ -33,7 +33,8 @@
 + (NSArray*)getValueAndAttributesFromString: (NSString*) string withTag: (NSString*) tag {
     
     //@"\<gpx\(.*?)\</gpx\>"
-    NSString *regexString = [NSString stringWithFormat:@"%@%@%@%@%@", @"\<", tag, @"\(.*?)\</", tag, @"\>"];
+    //NSString *regexString = [NSString stringWithFormat:@"%@%@%@%@%@", @"\<", tag, @"\(.*?)\</", tag, @"\>"];
+    NSString *regexString = [NSString stringWithFormat:@"%@%@%@%@%@", @"\\<", tag, @"\\(.*?)\\</", tag, @"\\>"];
     
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
@@ -53,7 +54,8 @@
     // Now get the string of attributes for each
     for( int i = 0; i < [matchingObjects count]; i++ ) {
         
-        NSString *attributesRegexString = [NSString stringWithFormat:@"%@%@%@%@", @"\<", tag, @"(.*?)", @">"];
+        //NSString *attributesRegexString = [NSString stringWithFormat:@"%@%@%@%@", @"\<", tag, @"(.*?)", @">"];
+        NSString *attributesRegexString = [NSString stringWithFormat:@"%@%@%@%@", @"\\<", tag, @"(.*?)", @">"];
         NSError *error = NULL;
         NSRegularExpression *attributesRegex = [NSRegularExpression regularExpressionWithPattern:attributesRegexString options:NSRegularExpressionCaseInsensitive error:&error];
         NSRange rangeOfMatch = [attributesRegex rangeOfFirstMatchInString:[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] options:0 range:NSMakeRange(0, [[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] length])];
