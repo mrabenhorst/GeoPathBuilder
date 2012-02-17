@@ -20,24 +20,13 @@
 
 @implementation GeoPathBuilderTests
 
+@synthesize collection;
+
 - (void)setUp
 {
     [super setUp];
     
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    
-    GPCollection *testGPXFile = [[GPCollection alloc] initWithCreator:@"GeoPathBuilder"];
+    collection = [[GPCollection alloc] initWithCreator:@"GeoPathBuilder"];
     GPTrackSegment *trackSeg = [[GPTrackSegment alloc] init];
     for( int i = 0; i < 20; i++ ) {
         GPTrackPoint *tkpt = [[GPTrackPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(i, -i)];
@@ -50,21 +39,72 @@
     GPTrack *testTrack = [[GPTrack alloc] init];
     [testTrack setName:@"Test Track"];
     [testTrack addSegment:trackSeg];
-    NSString *testUUID = [NSString stringWithString:[trackSeg UUID]];
-    [testGPXFile addTrack:testTrack];
-    NSString *gpxFileString = [testGPXFile getGPXString];
+    [collection addTrack:testTrack];
+}
+
+- (void)tearDown
+{
+    // Tear-down code here.
     
-    GPTrackSegment *segByUUID = [testGPXFile getObjectWithUUID:testUUID];
+    [super tearDown];
+}
+
+- (void)testExample
+{
     
-    NSArray *tags = [NSArray arrayWithArray:[GPUtilities getValueAndAttributesFromString:gpxFileString withTag:@"gpx"]];
+    [self testCreateCollectionFromScratch];
+    
+    [self testCreateGPCollectionFromGPXFile];
+    
+    [self testFindingUUID];        
+
+}
+
+-(void)testCreateCollectionFromScratch {
+    
+    STAssertNotNil(collection, @"Failed to create collection");
+    
+}
+
+-(void)testCreateGPCollectionFromGPXFile {
     
     NSString *path = [[NSBundle bundleWithIdentifier:@"com.ima.GeoPathBuilderTests"] bundlePath];
     NSString *gpxFileLocation = [path stringByAppendingPathComponent:@"mystic_basin_trail.gpx"];
     NSData *gpxFileData = [NSData dataWithContentsOfFile:gpxFileLocation];
     
     GPCollection *fromGPX = [GPCollection newCollectionFromGPXFile:gpxFileData];
-        
-
+    
+    STAssertNotNil(fromGPX, @"Failed to create GPCollection");
+    
 }
+
+-(void)testFindingUUID {
+    
+    GPWaypoint *waypointToFind = [[GPWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(7.0, 7.0)];
+    [collection addWaypoint:waypointToFind];
+    
+    NSString *testUUID = [NSString stringWithString:[waypointToFind UUID]];    
+    
+    GPWaypoint *waypointByUUID = (GPWaypoint*)[collection getObjectWithUUID:testUUID];
+    
+    STAssertNotNil(waypointByUUID, @"UUID Search Failed");
+    if( waypointByUUID ) {
+        STAssertEqualObjects(waypointToFind, waypointByUUID, @"UUID search failed");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
