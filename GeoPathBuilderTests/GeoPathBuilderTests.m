@@ -50,8 +50,11 @@
     GPTrack *testTrack = [[GPTrack alloc] init];
     [testTrack setName:@"Test Track"];
     [testTrack addSegment:trackSeg];
+    NSString *testUUID = [NSString stringWithString:[trackSeg UUID]];
     [testGPXFile addTrack:testTrack];
     NSString *gpxFileString = [testGPXFile getGPXString];
+    
+    GPTrackSegment *segByUUID = [testGPXFile getObjectWithUUID:testUUID];
     
     NSArray *tags = [NSArray arrayWithArray:[GPUtilities getValueAndAttributesFromString:gpxFileString withTag:@"gpx"]];
     
@@ -60,7 +63,7 @@
     NSData *gpxFileData = [NSData dataWithContentsOfFile:gpxFileLocation];
     
     GPCollection *fromGPX = [GPCollection newCollectionFromGPXFile:gpxFileData];
-    
+        
 
 }
 
