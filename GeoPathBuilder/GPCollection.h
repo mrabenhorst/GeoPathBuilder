@@ -51,6 +51,9 @@
 -(id)initWithCreator: (NSString*) creator;
 +(id)newCollectionFromGPXFile: (NSData*) gpxFileData;
 
+-(NSArray*)getAllPoints;
+-(void)updateBounds;
+
 // Returns a string version of the GPCollection in GPX format
 - (NSString*)getGPXString;
 
@@ -74,6 +77,8 @@
 // Returns the waypoint with matching UUID or nil if there are no matches
 -(GPWaypoint*)getWaypointWithUUID: (NSString*) UUID;
 
+// Returns array of waypoints
+-(NSArray*)getWaypoints;
 
 /*******
  *
@@ -91,8 +96,10 @@
 -(NSArray*)getRoutesWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive;
 
 // Returns the route with matching UUID or nil if there are no matches
--(GPWaypoint*)getRouteWithUUID: (NSString*) UUID;
+-(GPRoute*)getRouteWithUUID: (NSString*) UUID;
 
+// Returns array of routes
+-(NSArray*)getRoutes;
 
 /*******
  *
@@ -110,7 +117,10 @@
 -(NSArray*)getTracksWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive;
 
 // Returns the track with matching UUID or nil if there are no matches
--(GPWaypoint*)getTrackWithUUID: (NSString*) UUID;
+-(GPTrack*)getTrackWithUUID: (NSString*) UUID;
+
+// Returns array of tracks
+-(NSArray*)getTracks;
 
 /*
  * To code:

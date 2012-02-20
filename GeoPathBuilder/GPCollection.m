@@ -107,6 +107,10 @@
     }
 }
 
+-(NSArray*)getWaypoints {
+    return waypoints;
+}
+
 -(NSArray*)getWaypointsWithName: (NSString*) nameToMatch caseInsensitive: (BOOL) caseInsensitive {
     
     NSMutableArray *matches = [NSMutableArray array];
@@ -176,6 +180,10 @@
     
 }
 
+-(NSArray*)getRoutes {
+    return routes;
+}
+
 
 -(GPWaypoint*)getRouteWithUUID: (NSString*) UUID {
     
@@ -237,7 +245,9 @@
     return match;
 }
 
-
+-(NSArray*)getTracks {
+    return tracks;
+}
 
 - (NSString*)getGPXString {
     
@@ -253,6 +263,8 @@
     [self time] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_TIME attributeVals:nil attributeKeys:nil andValue:[GPUtilities dateToGPXFormat:self.time] useCDATA:FALSE]] : nil;
     [self keywords] ? [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_KEYWORDS attributeVals:nil attributeKeys:nil andValue:self.keywords useCDATA:FALSE]] : nil;
     // If bounds are all 0, bounds haven't been set
+    
+    [self updateBounds];
     if( !(self.bounds.north == 0 && self.bounds.south == 0 && self.bounds.east == 0 && self.bounds.west == 0) ) {
         
         NSArray *values = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%f",self.bounds.north],[NSString stringWithFormat:@"%f",self.bounds.south],[NSString stringWithFormat:@"%f",self.bounds.east],[NSString stringWithFormat:@"%f",self.bounds.west], nil];
@@ -304,5 +316,69 @@
     }
 
 }
+
+-(NSArray*)getAllPoints {
+    
+    NSMutableArray *allPoints = [NSMutableArray array];
+    
+    // Get the GPX String of each route
+    for( int i = 0; i < [waypoints count]; i++ ) {
+        [allPoints addObject:[waypoints objectAtIndex:i]];
+    }
+    
+    // Get the GPX String of each waypoint
+    for( int i = 0; i < [routes count]; i++ ) {
+        [allPoints addObjectsFromArray:[((GPRoute*)[routes objectAtIndex:i]) getPoints]];
+    }
+    
+    // Get the GPX String of each track
+    for( int i = 0; i < [tracks count]; i++ ) {
+        [allPoints addObjectsFromArray:[((GPTrack*)[tracks objectAtIndex:i]) getPoints]];
+    }
+    
+    return allPoints;
+    
+}
+
+
+-(void)updateBounds {
+    
+    GPBounds newBounds;
+    
+    NSArray *allPoints = [self getAllPoints];
+    for( int i = 0; i < [allPoints count]; i++ ) {
+        
+        // set bounds = to first point for starters
+        if( i == 0 ) {
+            newBounds.north = [((GPGeoPoint*)[allPoints objectAtIndex:0]) location].latitude;
+            newBounds.south = [((GPGeoPoint*)[allPoints objectAtIndex:0]) location].latitude;
+            newBounds.east = [((GPGeoPoint*)[allPoints objectAtIndex:0]) location].longitude;
+            newBounds.west = [((GPGeoPoint*)[allPoints objectAtIndex:0]) location].longitude;
+        } else {
+            CLLocationCoordinate2D currentLoc = [((GPGeoPoint*)[allPoints objectAtIndex:i]) location];
+            // North Lat
+            if( currentLoc.latitude > newBounds.north ) {
+                newBounds.north = currentLoc.latitude;
+            }
+            // South Lat
+            if( currentLoc.latitude < newBounds.south ) {
+                newBounds.south = currentLoc.latitude;
+            }
+            // East Long
+            if( currentLoc.longitude > newBounds.east ) {
+                newBounds.east = currentLoc.longitude;
+            }
+            // West Lat
+            if( currentLoc.longitude < newBounds.west ) {
+                newBounds.west = currentLoc.longitude;
+            }
+        }
+    }
+    
+    // Update the bounds
+    bounds = newBounds;
+    
+}
+
 
 @end
