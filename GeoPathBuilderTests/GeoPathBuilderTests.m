@@ -21,6 +21,7 @@
 @implementation GeoPathBuilderTests
 
 @synthesize collection;
+@synthesize fromFile;
 
 - (void)setUp
 {
@@ -58,6 +59,7 @@
     
     [self testFindingUUID];        
 
+    [self testPathStats];
 }
 
 -(void)testCreateCollectionFromScratch {
@@ -72,9 +74,9 @@
     NSString *gpxFileLocation = [path stringByAppendingPathComponent:@"mystic_basin_trail.gpx"];
     NSData *gpxFileData = [NSData dataWithContentsOfFile:gpxFileLocation];
     
-    GPCollection *fromGPX = [GPCollection newCollectionFromGPXFile:gpxFileData];
+    fromFile = [GPCollection newCollectionFromGPXFile:gpxFileData];
     
-    STAssertNotNil(fromGPX, @"Failed to create GPCollection");
+    STAssertNotNil(fromFile, @"Failed to create GPCollection");
     
 }
 
@@ -93,7 +95,33 @@
     }
 }
 
-
+-(void)testPathStats {
+    
+    GPTrack *longTrack = [[fromFile getTracksWithName:[NSString stringWithString:@"LONG TRACK"] caseInsensitive:FALSE] objectAtIndex:0];
+    
+    NSLog(@"longTrack getTotalDistance: %f", [longTrack getTotalDistance] );
+    NSLog(@"longTrack getTotalAscent: %f", [longTrack getTotalAscent] );
+    NSLog(@"longTrack getTotalDescent: %f", [longTrack getTotalDescent] );
+    NSLog(@"longTrack getAvgSpeed: %f", [longTrack getAvgSpeed] );
+    NSLog(@"longTrack getMinSpeed: %f", [longTrack getMinSpeed] );
+    NSLog(@"longTrack getMaxSpeed: %f", [longTrack getMaxSpeed] );
+    NSLog(@"longTrack getAvgElevation: %f", [longTrack getAvgElevation] );
+    NSLog(@"longTrack getMinElevation: %f", [longTrack getMinElevation] );
+    NSLog(@"longTrack getMaxElevation: %f", [longTrack getMaxElevation] );
+    
+    GPRoute *longRoute = [[fromFile getRoutesWithName:[NSString stringWithString:@"LONG LOOP"] caseInsensitive:FALSE] objectAtIndex:0];
+    
+    NSLog(@"longRoute getTotalDistance: %f", [longRoute getTotalDistance] );
+    NSLog(@"longRoute getTotalAscent: %f", [longRoute getTotalAscent] );
+    NSLog(@"longRoute getTotalDescent: %f", [longRoute getTotalDescent] );
+    NSLog(@"longRoute getAvgSpeed: %f", [longRoute getAvgSpeed] );
+    NSLog(@"longRoute getMinSpeed: %f", [longRoute getMinSpeed] );
+    NSLog(@"longRoute getMaxSpeed: %f", [longRoute getMaxSpeed] );
+    NSLog(@"longRoute getAvgElevation: %f", [longRoute getAvgElevation] );
+    NSLog(@"longRoute getMinElevation: %f", [longRoute getMinElevation] );
+    NSLog(@"longRoute getMaxElevation: %f", [longRoute getMaxElevation] );
+    
+}
 
 
 

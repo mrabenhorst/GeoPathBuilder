@@ -12,10 +12,12 @@
 @interface GeoPathBuilderTests : SenTestCase
 
 @property (nonatomic, retain) GPCollection *collection;
+@property (nonatomic, retain) GPCollection *fromFile;
 
 
 -(void)testCreateCollectionFromScratch;
 -(void)testCreateGPCollectionFromGPXFile;
 -(void)testFindingUUID;
+-(void)testPathStats;
 
 @end
