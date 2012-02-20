@@ -82,4 +82,113 @@
 }
 
 
+- (double) getTotalDistance {
+    
+    double totalDistance = 0;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        totalDistance += [[segments objectAtIndex:i] getTotalDistance];
+    }
+    
+    return totalDistance;
+}
+
+- (double) getTotalAscent {
+    
+    double totalAscent = 0;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        totalAscent += [[segments objectAtIndex:i] getTotalAscent];
+    }
+    
+    return totalAscent;
+    
+}
+- (double) getTotalDescent {
+    
+    double totalDescent = 0;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        totalDescent += [[segments objectAtIndex:i] getTotalDescent];
+    }
+    
+    return totalDescent;
+    
+}
+
+- (double) getAvgSpeed {
+    
+    double totalAvgSpeed = 0;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        totalAvgSpeed += [[segments objectAtIndex:i] getAvgSpeed];
+    }
+    
+    return totalAvgSpeed/[segments count];
+}
+
+- (double) getMinSpeed {
+    
+    double minSpeed = INFINITY;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        double speed = [[segments objectAtIndex:i] getMinSpeed];
+        if( speed < minSpeed && speed != -1 ) {
+            minSpeed = speed;
+        }
+    }
+    
+    return minSpeed;
+}
+- (double) getMaxSpeed {
+    double maxSpeed = -INFINITY;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        double speed = [[segments objectAtIndex:i] getMaxSpeed];
+        if( speed > maxSpeed ) {
+            maxSpeed = speed;
+        }
+    }
+    
+    return maxSpeed;
+}
+
+- (double) getAvgElevation {
+    double totalAvgElevation = 0;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        totalAvgElevation += [[segments objectAtIndex:i] getAvgElevation];
+    }
+    
+    return totalAvgElevation/[segments count];
+}
+
+- (double) getMinElevation {
+    double minElevation = INFINITY;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        double elevation = [[segments objectAtIndex:i] getMinElevation];
+        if( elevation < minElevation && elevation != -1) {
+            minElevation = elevation;
+        }
+    }
+    
+    return minElevation;
+}
+
+- (double) getMaxElevation {
+    double maxElevation = -INFINITY;
+    
+    for( int i = 0; i < [segments count]; i++ ) {
+        double elevation = [[segments objectAtIndex:i] getMaxElevation];
+        if( elevation > maxElevation ) {
+            maxElevation = elevation;
+        }
+    }
+    
+    return maxElevation;
+}
+
+
+
 @end

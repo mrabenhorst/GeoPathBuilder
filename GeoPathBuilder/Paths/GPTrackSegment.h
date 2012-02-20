@@ -10,7 +10,7 @@
 #import "GPTrackPoint.h"
 
 @interface GPTrackSegment : NSObject {
-    NSMutableArray *trackPoints;
+    NSMutableArray *geoPoints;
 }
 
 @property (nonatomic, retain) NSString *UUID;
@@ -24,6 +24,17 @@
 
 // Returns a string version of the Waypoint in GPX format
 - (NSString*)getGPXString;
+
+- (double)getTotalDistance;
+- (double)getTotalAscent;
+- (double)getTotalDescent;
+- (double)getAvgSpeed;
+- (double)getMinSpeed;
+- (double)getMaxSpeed;
+- (double)getAvgElevation;
+- (double)getMinElevation;
+- (double)getMaxElevation;
+
 
 /*
  * To code:

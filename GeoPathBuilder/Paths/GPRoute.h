@@ -40,6 +40,16 @@
 - (NSString*)getGPXString;
 
 
+- (double)getTotalDistance;
+- (double)getTotalAscent;
+- (double)getTotalDescent;
+- (double)getAvgSpeed;
+- (double)getMinSpeed;
+- (double)getMaxSpeed;
+- (double)getAvgElevation;
+- (double)getMinElevation;
+- (double)getMaxElevation;
+
 /*
  * To code:
  */

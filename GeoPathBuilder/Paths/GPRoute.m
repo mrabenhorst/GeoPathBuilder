@@ -88,4 +88,134 @@
     return GPXTagString;
 }
 
+- (double) getTotalDistance {
+    
+    NSMutableArray *pointCoords = [NSMutableArray array];
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        CLLocation *loc = [[CLLocation alloc] initWithLatitude:((GPGeoPoint*)[geoPoints objectAtIndex:i]).location.latitude longitude:((GPGeoPoint*)[geoPoints objectAtIndex:i]).location.longitude];
+        [pointCoords addObject:loc];
+        [loc release];
+    }
+    
+    return [GPUtilities CalculateDistanceInPointsInArray:pointCoords];
+}
+
+- (double) getTotalAscent {
+    
+    double totalAscent = 0;
+    
+    if( [geoPoints count] > 1 ) {
+        
+        double prevAltitude = ((GPGeoPoint*)[geoPoints objectAtIndex:0]).elevation;
+        
+        for( int i = 1; i < [geoPoints count]; i++ ) {
+            double currentAltitude = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).elevation;
+            if( currentAltitude > prevAltitude ) {
+                totalAscent += (currentAltitude - prevAltitude);
+            }
+            prevAltitude = currentAltitude;
+        }
+        
+    } else {
+        totalAscent = 0;
+    }
+    
+    return totalAscent;
+    
+}
+- (double) getTotalDescent {
+    
+    double totalDescent = 0;
+    
+    if( [geoPoints count] > 1 ) {
+        
+        double prevAltitude = ((GPGeoPoint*)[geoPoints objectAtIndex:0]).elevation;
+        
+        for( int i = 1; i < [geoPoints count]; i++ ) {
+            double currentAltitude = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).elevation;
+            if( currentAltitude < prevAltitude ) {
+                totalDescent += (prevAltitude - currentAltitude);
+            }
+            prevAltitude = currentAltitude;
+        }
+        
+    } else {
+        totalDescent = 0;
+    }
+    
+    return totalDescent;
+    
+}
+
+- (double) getAvgSpeed {
+    
+    double totalSpeed = 0;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        totalSpeed += ((GPGeoPoint*)[geoPoints objectAtIndex:i]).speed;
+    }
+    
+    return totalSpeed/[geoPoints count];
+}
+
+- (double) getMinSpeed {
+    double minSpeed = INFINITY;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        double speed = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).speed;
+        if( speed < minSpeed && speed != -1 ) {
+            minSpeed = speed;
+        }
+    }
+    
+    return minSpeed;
+}
+- (double) getMaxSpeed {
+    double maxSpeed = -INFINITY;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        double speed = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).speed;
+        if( speed > maxSpeed ) {
+            maxSpeed = speed;
+        }
+    }
+    
+    return maxSpeed;
+}
+
+- (double) getAvgElevation {
+    double totalElevation = 0;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        totalElevation += ((GPGeoPoint*)[geoPoints objectAtIndex:i]).elevation;
+    }
+    
+    return totalElevation/[geoPoints count];
+}
+- (double) getMinElevation {
+    double minElevation = INFINITY;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        double elevation = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).elevation;
+        if( elevation < minElevation && elevation != -1) {
+            minElevation = elevation;
+        }
+    }
+    
+    return minElevation;
+}
+- (double) getMaxElevation {
+    double maxElevation = -INFINITY;
+    
+    for( int i = 0; i < [geoPoints count]; i++ ) {
+        double elevation = ((GPGeoPoint*)[geoPoints objectAtIndex:i]).elevation;
+        if( elevation > maxElevation ) {
+            maxElevation = elevation;
+        }
+    }
+    
+    return maxElevation;
+}
+
+
 @end
