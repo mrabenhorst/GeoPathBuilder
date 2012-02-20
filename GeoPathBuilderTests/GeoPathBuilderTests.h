@@ -36,5 +36,6 @@
 -(void)testCreateGPCollectionFromGPXFile;
 -(void)testFindingUUID;
 -(void)testPathStats;
+-(void)testDynamicBounds;
 
 @end

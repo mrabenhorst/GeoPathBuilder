@@ -77,6 +77,8 @@
     [self testFindingUUID];        
 
     [self testPathStats];
+    
+    [self testDynamicBounds];
 }
 
 -(void)testCreateCollectionFromScratch {
@@ -140,16 +142,13 @@
     
 }
 
-
-
-
-
-
-
-
-
-
-
+-(void)testDynamicBounds {
+    
+    [collection updateBounds];
+    GPBounds newBounds = [collection bounds];
+    NSLog(@"Bounds, N: %f, E: %f, S: %f, W: %f", newBounds.north, newBounds.east, newBounds.south, newBounds.west );
+    
+}
 
 
 @end
