@@ -105,6 +105,10 @@
     return GPXTagString;
 }
 
+-(NSArray*)getPoints {
+    return geoPoints;
+}
+
 - (double) getTotalDistance {
     
     NSMutableArray *pointCoords = [NSMutableArray array];

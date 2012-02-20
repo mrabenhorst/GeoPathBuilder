@@ -68,6 +68,10 @@
     }
 }
 
+-(NSArray*)getPoints {
+    return geoPoints;
+}
+
 - (NSString*)getGPXString {
     
     NSMutableString *GPXDataString = [[[NSMutableString alloc] initWithString:@""] autorelease];

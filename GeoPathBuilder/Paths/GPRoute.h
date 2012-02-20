@@ -56,6 +56,7 @@
  */
 - (NSString*)getGPXString;
 
+- (NSArray*)getPoints;
 
 - (double)getTotalDistance;
 - (double)getTotalAscent;

@@ -74,6 +74,18 @@
     }
 }
 
+- (NSArray*)getSegments {
+    return segments;
+}
+
+- (NSArray*)getPoints {
+    NSMutableArray *allPoints = [NSMutableArray array];
+    for( int i = 0; i < [segments count]; i++ ) {
+        [allPoints addObjectsFromArray:[[segments objectAtIndex:i] getPoints]];
+    }
+    return allPoints;
+}
+
 - (NSString*)getGPXString {
     
     NSMutableString *GPXDataString = [[[NSMutableString alloc] initWithString:@""] autorelease];

@@ -42,6 +42,8 @@
 // Returns a string version of the Waypoint in GPX format
 - (NSString*)getGPXString;
 
+-(NSArray*)getPoints;
+
 - (double)getTotalDistance;
 - (double)getTotalAscent;
 - (double)getTotalDescent;
