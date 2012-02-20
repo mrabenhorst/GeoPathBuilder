@@ -139,7 +139,6 @@
     [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     [UTCDateFormat setCalendar:[[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease]];
     [UTCDateFormat setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
-    NSLog(@"%@", [UTCDateFormat dateFromString:dateString]);
     return [UTCDateFormat dateFromString:dateString];
 }
 
@@ -367,7 +366,59 @@
        
        
        
-       
++ (double) CalculateDistanceInPointsInArray: (NSMutableArray*) pointsArray {
+    
+    double totalDistance = 0;
+    
+    NSEnumerator *e = [pointsArray objectEnumerator];
+    id object;
+    id prevObject;
+    int count = 0;
+    while ( object = [e nextObject] )
+    {
+        //NSLog(@"Coordinate: %@", [object coordinate]);
+        if( count == 0 ) {
+            prevObject = object;
+        } else {
+            totalDistance += [self CalculateKilometerDistanceFrom:[prevObject coordinate] To:[object coordinate]];
+            prevObject = object;
+        }
+        count++;
+    }
+    
+    return totalDistance;
+}
+
+
++ (double) CalculateKilometerDistanceFrom: (CLLocationCoordinate2D) point1 To: (CLLocationCoordinate2D) point2 {
+    
+    // Derrived from http://www.movable-type.co.uk/scripts/latlong.html
+    
+    //double nRadius = 6371; // Earth's radius in Kilometers
+    double nRadius = 6378.15981; // Earth's radius in Kilometers
+    // Get the difference between our two points
+    // then convert the difference into radians
+    
+    double nLat1 = point1.latitude;
+    double nLon1 = point1.longitude;
+    double nLat2 = point2.latitude;
+    double nLon2 = point2.longitude;
+    
+    double nDLat = (nLat2 - nLat1) * (M_PI/180);
+    double nDLon = (nLon2 - nLon1) * (M_PI/180);
+    
+    // Here is the new line
+    nLat1 =  (nLat1) * (M_PI/180);
+    nLat2 =  (nLat2) * (M_PI/180);
+    
+    double nA = pow ( sin(nDLat/2), 2 ) + cos(nLat1) * cos(nLat2) * pow ( sin(nDLon/2), 2 );
+    
+    double nC = 2 * atan2( sqrt(nA), sqrt( 1 - nA ));
+    double nD = nRadius * nC;
+    
+    return nD; // Return our calculated distance
+    
+}
        
        
        

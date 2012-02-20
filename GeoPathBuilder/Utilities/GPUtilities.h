@@ -29,4 +29,7 @@
 + (GPXElementType)getGPXElementTypeByName:(NSString*) elementName;
 
 + (NSString*)getUUID;
+
++ (double) CalculateDistanceInPointsInArray: (NSMutableArray*) pointsArray;
++ (double) CalculateKilometerDistanceFrom: (CLLocationCoordinate2D) point1 To: (CLLocationCoordinate2D) point2;
 @end
