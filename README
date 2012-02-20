@@ -5,3 +5,6 @@ Project Started: 1/31/12 @ 1:12 EST
 
 2/15/12:
 	Added support for importing and exporting Waypoints, Tracks, Track Segments, Track Points, Routes, and Route Points from and to GPX files (see supported tag list for more details)
+	
+2/20/12:
+	Added calculation methods for distance, speed, and elevation for routes and tracks.
