@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3BE33914F2CEC10036F0D3 /* GPGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3BE33714F2CEC10036F0D3 /* GPGeoPoint.h */; };
+		5A3BE33A14F2CEC10036F0D3 /* GPGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BE33814F2CEC10036F0D3 /* GPGeoPoint.m */; };
 		5A3E559214D9B35B00E79F1D /* GPTrackSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */; };
 		5A3E559314D9B35B00E79F1D /* GPTrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E559114D9B35B00E79F1D /* GPTrackSegment.m */; };
 		5A3E559714D9B50000E79F1D /* GPTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3E559514D9B50000E79F1D /* GPTrack.h */; };
@@ -32,8 +34,6 @@
 		5AF8C15814D87DB700958790 /* libGeoPathBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */; };
 		5AF8C15E14D87DB700958790 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF8C15C14D87DB700958790 /* InfoPlist.strings */; };
 		5AF8C16114D87DB700958790 /* GeoPathBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C16014D87DB700958790 /* GeoPathBuilderTests.m */; };
-		5AF8C16F14D8803200958790 /* GPGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C16D14D8803200958790 /* GPGeoPoint.h */; };
-		5AF8C17014D8803200958790 /* GPGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C16E14D8803200958790 /* GPGeoPoint.m */; };
 		5AF8C17314D8864100958790 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C17214D8864100958790 /* CoreLocation.framework */; };
 		5AF8C17714D8880500958790 /* GPWaypoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AF8C17514D8880500958790 /* GPWaypoint.h */; };
 		5AF8C17814D8880500958790 /* GPWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8C17614D8880500958790 /* GPWaypoint.m */; };
@@ -54,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A3BE33714F2CEC10036F0D3 /* GPGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGeoPoint.h; path = GeoPoints/GPGeoPoint.h; sourceTree = "<group>"; };
+		5A3BE33814F2CEC10036F0D3 /* GPGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGeoPoint.m; path = GeoPoints/GPGeoPoint.m; sourceTree = "<group>"; };
 		5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrackSegment.h; path = Paths/GPTrackSegment.h; sourceTree = "<group>"; };
 		5A3E559114D9B35B00E79F1D /* GPTrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTrackSegment.m; path = Paths/GPTrackSegment.m; sourceTree = "<group>"; };
 		5A3E559514D9B50000E79F1D /* GPTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrack.h; path = Paths/GPTrack.h; sourceTree = "<group>"; };
@@ -82,8 +84,6 @@
 		5AF8C15D14D87DB700958790 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AF8C15F14D87DB700958790 /* GeoPathBuilderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoPathBuilderTests.h; sourceTree = "<group>"; };
 		5AF8C16014D87DB700958790 /* GeoPathBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoPathBuilderTests.m; sourceTree = "<group>"; };
-		5AF8C16D14D8803200958790 /* GPGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGeoPoint.h; sourceTree = "<group>"; };
-		5AF8C16E14D8803200958790 /* GPGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGeoPoint.m; sourceTree = "<group>"; };
 		5AF8C17214D8864100958790 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5AF8C17514D8880500958790 /* GPWaypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPWaypoint.h; path = GeoPoints/GPWaypoint.h; sourceTree = "<group>"; };
 		5AF8C17614D8880500958790 /* GPWaypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPWaypoint.m; path = GeoPoints/GPWaypoint.m; sourceTree = "<group>"; };
@@ -219,10 +219,10 @@
 		5AF8C17414D887AC00958790 /* GeoPoints */ = {
 			isa = PBXGroup;
 			children = (
+				5A3BE33714F2CEC10036F0D3 /* GPGeoPoint.h */,
+				5A3BE33814F2CEC10036F0D3 /* GPGeoPoint.m */,
 				5AB0A7AF14D97C850035388D /* GPRoutePoint.h */,
 				5AB0A7B014D97C850035388D /* GPRoutePoint.m */,
-				5AF8C16D14D8803200958790 /* GPGeoPoint.h */,
-				5AF8C16E14D8803200958790 /* GPGeoPoint.m */,
 				5AF8C17514D8880500958790 /* GPWaypoint.h */,
 				5AF8C17614D8880500958790 /* GPWaypoint.m */,
 				5AB0A7C114D9B2540035388D /* GPTrackPoint.h */,
@@ -238,7 +238,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AF8C16F14D8803200958790 /* GPGeoPoint.h in Headers */,
 				5AF8C17714D8880500958790 /* GPWaypoint.h in Headers */,
 				5AF8C17A14D8891000958790 /* GPConstants.h in Headers */,
 				5AF8C17D14D88B1100958790 /* GPUtilities.h in Headers */,
@@ -250,6 +249,7 @@
 				5A3E559214D9B35B00E79F1D /* GPTrackSegment.h in Headers */,
 				5A3E559714D9B50000E79F1D /* GPTrack.h in Headers */,
 				5ACECE2814E5A6D600722EC7 /* GPGPXLoader.h in Headers */,
+				5A3BE33914F2CEC10036F0D3 /* GPGeoPoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +353,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AF8C17014D8803200958790 /* GPGeoPoint.m in Sources */,
 				5AF8C17814D8880500958790 /* GPWaypoint.m in Sources */,
 				5AF8C17E14D88B1100958790 /* GPUtilities.m in Sources */,
 				5AB0A7B214D97C850035388D /* GPRoutePoint.m in Sources */,
@@ -364,6 +363,7 @@
 				5A3E559314D9B35B00E79F1D /* GPTrackSegment.m in Sources */,
 				5A3E559814D9B50000E79F1D /* GPTrack.m in Sources */,
 				5ACECE2914E5A6D600722EC7 /* GPGPXLoader.m in Sources */,
+				5A3BE33A14F2CEC10036F0D3 /* GPGeoPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
