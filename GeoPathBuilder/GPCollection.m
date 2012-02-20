@@ -44,6 +44,9 @@
 @synthesize bounds;
 
 -(id)initWithCreator: (NSString*) theCreator {
+    
+    self = [super init];
+    
     waypoints = [[NSMutableArray alloc] init];
     routes = [[NSMutableArray alloc] init];
     tracks = [[NSMutableArray alloc] init];
@@ -134,7 +137,7 @@
 
 -(GPWaypoint*)getWaypointWithUUID: (NSString*) UUID {
     
-    GPWaypoint *match;
+    GPWaypoint *match = nil;
     
     for( int i = 0; i < [waypoints count]; i++ ) {
         if( [[[waypoints objectAtIndex:i] UUID] isEqualToString:UUID] ) {
@@ -187,7 +190,7 @@
 
 -(GPWaypoint*)getRouteWithUUID: (NSString*) UUID {
     
-    GPWaypoint *match;
+    GPWaypoint *match = nil;
     
     for( int i = 0; i < [routes count]; i++ ) {
         if( [[[routes objectAtIndex:i] UUID] isEqualToString:UUID] ) {
@@ -234,7 +237,7 @@
 
 // Returns the track with matching UUID or nil if there are no matches
 -(GPWaypoint*)getTrackWithUUID: (NSString*) UUID {
-    GPWaypoint *match;
+    GPWaypoint *match = nil;
     
     for( int i = 0; i < [tracks count]; i++ ) {
         if( [[[tracks objectAtIndex:i] UUID] isEqualToString:UUID] ) {
@@ -297,10 +300,18 @@
     return GPXTagString;
 }
 
+- (void)writeToGPXFileWithPath: (NSString*)gpxFilePath {
+    
+    NSString *gpxStringForFile = [NSString stringWithString:[self getGPXString]];
+    NSData *gpxFileData = [NSData dataWithData:[gpxStringForFile dataUsingEncoding:NSUTF8StringEncoding]];
+    [gpxFileData writeToFile:gpxFilePath atomically:FALSE];
+    
+}
+
 +(id)newCollectionFromGPXFile: (NSData*) gpxFileData {
     
     NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:gpxFileData];
-    GPGPXLoader *gpxLoader = [[GPGPXLoader alloc] init];
+    GPGPXLoader *gpxLoader = [[[GPGPXLoader alloc] init] autorelease];
     
     [nsXmlParser setDelegate:gpxLoader];
     
@@ -308,7 +319,7 @@
     if( success ) {
         
         // get data from gpxLoader
-        return [gpxLoader getCollection];
+        return [(GPCollection*)[gpxLoader getCollection] retain];
     } else {
         
         // something very bad happened...
@@ -378,6 +389,12 @@
     // Update the bounds
     bounds = newBounds;
     
+}
+
+-(void)dealloc {
+    waypoints ? [waypoints release] : nil;
+    routes ? [routes release] : nil;
+    tracks ? [tracks release] : nil;
 }
 
 

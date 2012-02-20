@@ -373,6 +373,21 @@ foundCharacters:(NSString *)string {
     
 }
 
+-(void)dealloc {
+    
+    collection ? [collection release] : nil;
+    tempWaypoint ? [tempWaypoint release] : nil;
+    tempRoute ? [tempRoute release] : nil;
+    tempRoutePoint ? [tempRoutePoint release] : nil;
+    tempTrack ? [tempTrack release] : nil;
+    tempTrackSegment ? [tempTrackSegment release] : nil;
+    tempTrackPoint ? [tempTrackPoint release] : nil;
+    currentParentObject ? [currentParentObject release] : nil;
+    currentParentObjectTag ? [currentParentObjectTag release] : nil;
+    currentTagAttributes ? [currentTagAttributes release] : nil;
+    currentValue? [currentValue release] : nil;
+    
+}
 
 
 

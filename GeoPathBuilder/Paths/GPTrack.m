@@ -31,6 +31,9 @@
 @implementation GPTrack
 
 -(id)init {
+    
+    self = [super init];
+    
     segments = [[NSMutableArray alloc] init];
     [self setUUID:[GPUtilities getUUID]];
     
@@ -39,7 +42,7 @@
 
 - (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
-    NSObject *match;
+    NSObject *match = nil;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [segments count] && matchFound != true); i++ ) {
@@ -218,6 +221,8 @@
     return maxElevation;
 }
 
-
+-(void)dealloc {
+    segments ? [segments release] : nil;
+}
 
 @end

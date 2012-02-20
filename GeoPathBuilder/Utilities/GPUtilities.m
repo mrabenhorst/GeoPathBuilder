@@ -39,9 +39,9 @@
     }
     
     if( cdata ) {
-        tagString = [[NSString alloc] initWithFormat:@"<%@%@><![CDATA[%@]]></%@>",tagName,attributesString,value,tagName];
+        tagString = [NSString stringWithFormat:@"<%@%@><![CDATA[%@]]></%@>",tagName,attributesString,value,tagName];
     } else {
-        tagString = [[NSString alloc] initWithFormat:@"<%@%@>%@</%@>",tagName,attributesString,value,tagName];
+        tagString = [NSString stringWithFormat:@"<%@%@>%@</%@>",tagName,attributesString,value,tagName];
     }
     
     return tagString;
@@ -57,13 +57,13 @@
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
     NSArray *matches = [regex matchesInString:string options:0 range:NSMakeRange(0, [string length])];
        
-    NSMutableArray *matchingObjects = [[NSMutableArray alloc] init];
+    NSMutableArray *matchingObjects = [NSMutableArray array];
     
     // Get matches and put them into an array
     for (NSTextCheckingResult *match in matches) {
         NSRange matchRange = [match range];
         //NSLog(@"%@",[string substringWithRange:matchRange]);
-        NSMutableDictionary *matchData = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *matchData = [NSMutableDictionary dictionary];
         [matchData setObject:[NSString stringWithString:[string substringWithRange:matchRange]] forKey:@"Match String"];
         [matchingObjects addObject:matchData];
     }
@@ -133,7 +133,7 @@
         int beginningDataLength = [[[matchingObjects objectAtIndex:i] objectForKey:@"Attributes String"] length];
         int trailingDataLength = [[NSString stringWithFormat:@"%@%@%@", @"</", tag, @">"] length];
         
-        NSString *tagData = [[NSString alloc] initWithString:[[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] substringWithRange:NSMakeRange(beginningDataLength, [[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] length]-beginningDataLength-trailingDataLength)]];
+        NSString *tagData = [NSString stringWithString:[[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] substringWithRange:NSMakeRange(beginningDataLength, [[[matchingObjects objectAtIndex:i] objectForKey:@"Match String"] length]-beginningDataLength-trailingDataLength)]];
         //NSLog(@"%@",tagData);
         [[matchingObjects objectAtIndex:i] setObject:tagData forKey:@"Data"];
     }
@@ -144,14 +144,14 @@
 }
 
 + (NSString*)dateToGPXFormat: (NSDate*)date {
-    NSDateFormatter *UTCDateFormat = [NSDateFormatter new];
+    NSDateFormatter *UTCDateFormat = [[[NSDateFormatter alloc] init] autorelease];
     [UTCDateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     return [UTCDateFormat stringFromDate:date];
 }
 
 + (NSDate*)dateFromGPXFormat: (NSString*) dateString {
-    NSDateFormatter *UTCDateFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *UTCDateFormat = [[[NSDateFormatter alloc] init] autorelease];
     [UTCDateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     [UTCDateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     [UTCDateFormat setCalendar:[[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease]];
@@ -378,7 +378,9 @@
 
 +(NSString*)getUUID {
     CFUUIDRef myUUID = CFUUIDCreate(CFAllocatorGetDefault());
-    return [NSString stringWithFormat:@"%@", (CFUUIDCreateString(CFAllocatorGetDefault(), myUUID))];
+    NSString *UUIDString = [NSString stringWithFormat:@"%@", myUUID];
+    CFRelease(myUUID);
+    return UUIDString;
 }
        
        

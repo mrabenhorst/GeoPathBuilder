@@ -57,6 +57,8 @@
 // Returns a string version of the GPCollection in GPX format
 - (NSString*)getGPXString;
 
+- (void)writeToGPXFileWithPath: (NSString*)gpxFilePath;
+
 - (NSObject*)getObjectWithUUID: (NSString*) matchUUID;
 
 /*******

@@ -33,6 +33,9 @@
 @synthesize UUID;
 
 -(id)init {
+    
+    self = [super init];
+    
     geoPoints = [[NSMutableArray alloc] init];
     
     [self setUUID:[GPUtilities getUUID]];
@@ -42,7 +45,7 @@
 
 - (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
-    NSObject *match;
+    NSObject *match = nil;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [geoPoints count] && matchFound != true); i++ ) {
@@ -214,6 +217,10 @@
     }
     
     return maxElevation;
+}
+
+-(void)dealloc {
+    geoPoints ? [geoPoints release] : nil;
 }
 
 @end

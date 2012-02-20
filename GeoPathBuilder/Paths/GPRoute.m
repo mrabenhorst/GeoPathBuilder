@@ -31,6 +31,9 @@
 @implementation GPRoute
 
 -(id)init {
+    
+    self = [super init];
+    
     geoPoints = [[NSMutableArray alloc] init];
     
     [self setUUID:[GPUtilities getUUID]];
@@ -39,6 +42,8 @@
 }
 
 -(id)initWithName: (NSString*) pathName andPoints: (NSArray*) points {
+    
+    self = [super init];
     
     [self setName:pathName];
     geoPoints = [[NSMutableArray alloc] init];
@@ -54,7 +59,7 @@
 
 - (NSObject*)getObjectWithUUID: (NSString*) matchUUID {
     
-    NSObject *match;
+    NSObject *match = nil;
     BOOL matchFound = false;
     
     for( int i = 0;(i < [geoPoints count] && matchFound != true); i++ ) {
@@ -236,6 +241,10 @@
     }
     
     return maxElevation;
+}
+
+-(void)dealloc {
+    geoPoints ? [geoPoints release] : nil;
 }
 
 
