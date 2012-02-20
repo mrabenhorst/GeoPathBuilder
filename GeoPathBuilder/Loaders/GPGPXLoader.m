@@ -70,8 +70,6 @@ foundCharacters:(NSString *)string {
   namespaceURI:(NSString *)namespaceURI 
  qualifiedName:(NSString *)qName {
     
-    NSLog(@"Ending: %@",elementName);
-    
     if( [GPUtilities getGPXElementTypeByName:elementName] == keGPX_OBJECT ) {
         switch( [GPUtilities getGPXTagForGPXTagName:elementName] ) {
             case keGPX_MASTER:
