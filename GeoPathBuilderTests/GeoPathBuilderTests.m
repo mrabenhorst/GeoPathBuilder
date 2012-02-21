@@ -74,11 +74,14 @@
     
     [self testCreateGPCollectionFromGPXFile];
     
+    [self testCreateGPCollectionFromKMLFile];
+    
     [self testFindingUUID];        
 
     [self testPathStats];
     
     [self testDynamicBounds];
+    
 }
 
 -(void)testCreateCollectionFromScratch {
@@ -97,6 +100,19 @@
     
     STAssertNotNil(fromFile, @"Failed to create GPCollection");
     
+}
+
+-(void)testCreateGPCollectionFromKMLFile {
+    
+    NSString *path = [[NSBundle bundleWithIdentifier:@"com.ima.GeoPathBuilderTests"] bundlePath];
+    NSString *kmlFileLocation = [path stringByAppendingPathComponent:@"Keystone XL.kml"];
+    NSData *kmlFileData = [NSData dataWithContentsOfFile:kmlFileLocation];
+    
+    GPCollection *fromKMLFile = [GPCollection newCollectionFromKMLFile:kmlFileData];
+    
+    STAssertNotNil(fromKMLFile, @"Failed to create GPCollection from KML");
+    
+    [fromKMLFile release];
 }
 
 -(void)testFindingUUID {

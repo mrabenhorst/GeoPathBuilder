@@ -34,6 +34,7 @@
 
 -(void)testCreateCollectionFromScratch;
 -(void)testCreateGPCollectionFromGPXFile;
+-(void)testCreateGPCollectionFromKMLFile;
 -(void)testFindingUUID;
 -(void)testPathStats;
 -(void)testDynamicBounds;
