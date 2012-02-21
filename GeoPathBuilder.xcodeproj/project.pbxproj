@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3810B714F3E4FD0045C3F0 /* GPKMLLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3810B514F3E4FC0045C3F0 /* GPKMLLoader.h */; };
+		5A3810B814F3E4FD0045C3F0 /* GPKMLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3810B614F3E4FC0045C3F0 /* GPKMLLoader.m */; };
+		5A3810D614F3FE510045C3F0 /* GPKMLPlacemark.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3810D414F3FE510045C3F0 /* GPKMLPlacemark.h */; };
+		5A3810D714F3FE510045C3F0 /* GPKMLPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3810D514F3FE510045C3F0 /* GPKMLPlacemark.m */; };
+		5A3810D914F418C90045C3F0 /* Keystone XL.kml in Resources */ = {isa = PBXBuildFile; fileRef = 5A3810D814F418C90045C3F0 /* Keystone XL.kml */; };
 		5A3BE33914F2CEC10036F0D3 /* GPGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3BE33714F2CEC10036F0D3 /* GPGeoPoint.h */; };
 		5A3BE33A14F2CEC10036F0D3 /* GPGeoPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BE33814F2CEC10036F0D3 /* GPGeoPoint.m */; };
 		5A3E559214D9B35B00E79F1D /* GPTrackSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */; };
@@ -53,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A3810B514F3E4FC0045C3F0 /* GPKMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPKMLLoader.h; path = Loaders/GPKMLLoader.h; sourceTree = "<group>"; };
+		5A3810B614F3E4FC0045C3F0 /* GPKMLLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPKMLLoader.m; path = Loaders/GPKMLLoader.m; sourceTree = "<group>"; };
+		5A3810D414F3FE510045C3F0 /* GPKMLPlacemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPKMLPlacemark.h; path = "GeoPathBuilder/KML Support/GPKMLPlacemark.h"; sourceTree = "<group>"; };
+		5A3810D514F3FE510045C3F0 /* GPKMLPlacemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPKMLPlacemark.m; path = "GeoPathBuilder/KML Support/GPKMLPlacemark.m"; sourceTree = "<group>"; };
+		5A3810D814F418C90045C3F0 /* Keystone XL.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Keystone XL.kml"; sourceTree = "<group>"; };
 		5A3BE33714F2CEC10036F0D3 /* GPGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGeoPoint.h; path = GeoPoints/GPGeoPoint.h; sourceTree = "<group>"; };
 		5A3BE33814F2CEC10036F0D3 /* GPGeoPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGeoPoint.m; path = GeoPoints/GPGeoPoint.m; sourceTree = "<group>"; };
 		5A3E559014D9B35B00E79F1D /* GPTrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTrackSegment.h; path = Paths/GPTrackSegment.h; sourceTree = "<group>"; };
@@ -114,6 +124,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A3810D314F3FE280045C3F0 /* KML Support */ = {
+			isa = PBXGroup;
+			children = (
+				5A3810D414F3FE510045C3F0 /* GPKMLPlacemark.h */,
+				5A3810D514F3FE510045C3F0 /* GPKMLPlacemark.m */,
+			);
+			name = "KML Support";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		5AB0A7B814D97D430035388D /* Paths */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +154,8 @@
 			children = (
 				5ACECE2614E5A6D600722EC7 /* GPGPXLoader.h */,
 				5ACECE2714E5A6D600722EC7 /* GPGPXLoader.m */,
+				5A3810B514F3E4FC0045C3F0 /* GPKMLLoader.h */,
+				5A3810B614F3E4FC0045C3F0 /* GPKMLLoader.m */,
 			);
 			name = Loaders;
 			sourceTree = "<group>";
@@ -178,6 +200,7 @@
 				5ACECE2514E5A6BD00722EC7 /* Loaders */,
 				5AF8C17414D887AC00958790 /* GeoPoints */,
 				5AB0A7B814D97D430035388D /* Paths */,
+				5A3810D314F3FE280045C3F0 /* KML Support */,
 				5AF8C14614D87DB700958790 /* Supporting Files */,
 			);
 			path = GeoPathBuilder;
@@ -204,6 +227,7 @@
 		5AF8C15A14D87DB700958790 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A3810D814F418C90045C3F0 /* Keystone XL.kml */,
 				5A5F6CBB14E984AE007F22DF /* tracks_test.gpx */,
 				5ACECE4314E5B10F00722EC7 /* mystic_basin_trail.gpx */,
 				5AF8C15B14D87DB700958790 /* GeoPathBuilderTests-Info.plist */,
@@ -246,6 +270,8 @@
 				5A3E559714D9B50000E79F1D /* GPTrack.h in Headers */,
 				5ACECE2814E5A6D600722EC7 /* GPGPXLoader.h in Headers */,
 				5A3BE33914F2CEC10036F0D3 /* GPGeoPoint.h in Headers */,
+				5A3810B714F3E4FD0045C3F0 /* GPKMLLoader.h in Headers */,
+				5A3810D614F3FE510045C3F0 /* GPKMLPlacemark.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +349,7 @@
 				5AF8C15E14D87DB700958790 /* InfoPlist.strings in Resources */,
 				5ACECE4414E5B10F00722EC7 /* mystic_basin_trail.gpx in Resources */,
 				5A5F6CBC14E984AE007F22DF /* tracks_test.gpx in Resources */,
+				5A3810D914F418C90045C3F0 /* Keystone XL.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +387,8 @@
 				5A3E559814D9B50000E79F1D /* GPTrack.m in Sources */,
 				5ACECE2914E5A6D600722EC7 /* GPGPXLoader.m in Sources */,
 				5A3BE33A14F2CEC10036F0D3 /* GPGeoPoint.m in Sources */,
+				5A3810B814F3E4FD0045C3F0 /* GPKMLLoader.m in Sources */,
+				5A3810D714F3FE510045C3F0 /* GPKMLPlacemark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
