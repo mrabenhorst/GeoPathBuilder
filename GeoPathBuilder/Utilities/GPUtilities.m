@@ -25,6 +25,7 @@
 
 #import "GPUtilities.h"
 #import "GPConstants.h"
+#import "GPTrackPoint.h"
 
 @implementation GPUtilities
 
@@ -159,6 +160,9 @@
     return [UTCDateFormat dateFromString:dateString];
 }
 
+//
+// This is NOT Used.
+//
 + (NSString*)GPBoundsToGPXFormat: (GPBounds) bounds {
     return [NSString stringWithFormat:@"minlat=\"%f\" minlon=\"%f\" maxlat=\"%f\" maxlon=\"%f\"", bounds.south, bounds.east, bounds.north, bounds.west];
 }
@@ -374,7 +378,124 @@
     
     return -1;
 }
-       
+
++ (KMLTag)getKMLTagForKMLTagName:(NSString*) tagName {
+    
+    // Objects
+    
+    if( [tagName isEqualToString:kKMLTAG_MASTER] ) {
+        return keKML_MASTER;
+    } else if ( [tagName isEqualToString:kKMLTAG_PLACEMARK] ) {
+        return keKML_PLACEMARK;
+    } else if ( [tagName isEqualToString:kKMLTAG_LINE] ) {
+        return keKML_LINE;
+    } else if ( [tagName isEqualToString:kKMLTAG_POINT] ) {
+        return keKML_POINT;
+    }     
+    
+    // Attributes
+    
+    
+    
+    
+    // Properties
+    
+    else if ( [tagName isEqualToString:kKMLTAG_NAME] ) {
+        return keKML_NAME;
+    } else if ( [tagName isEqualToString:kKMLTAG_DESCRIPTION] ) {
+        return keKML_DESCRIPTION;
+    } else if ( [tagName isEqualToString:kKMLTAG_COORDINATES] ) {
+        return keKML_COORDINATES;
+    } 
+
+    return -1;
+    
+}
+
+    
++ (KMLElementType)getKMLElementTypeByName:(NSString*) elementName {
+    
+    switch ( [GPUtilities getKMLTagForKMLTagName:elementName] ) {
+            
+        /* 
+         * Objects
+         */
+        case keKML_MASTER:
+            return keKML_OBJECT;
+            break;
+        case keKML_DOCUMENT:
+            return keKML_OBJECT;
+            break;
+        case keKML_PLACEMARK:
+            return keKML_OBJECT;
+            break;
+        case keKML_LINE:
+            return keKML_OBJECT;
+            break;
+        case keKML_POINT:
+            return keKML_OBJECT;
+            break;
+            
+        /* 
+         * Attributes
+         */
+        
+            
+        /* 
+         * Properties
+         */
+        case keKML_NAME:
+            return keKML_PROPERTY;
+            break;
+        case keKML_DESCRIPTION:
+            return keKML_PROPERTY;
+            break;
+        case keKML_COORDINATES:
+            return keKML_PROPERTY;
+            break;
+            
+    }
+    
+    return -1;
+}
+
++ (NSArray*)getArrayOfTrackPointsFromKMLCoordinatesString:(NSString*) coordinatesString {
+    
+    NSString *coordinatesStringStrippedOfNewlinesAndTabs = [NSString stringWithString:[GPUtilities getStringFromStringWithoutNewlineAndTabCharacters:coordinatesString]];
+    NSMutableArray *arrayOfPoints = [NSMutableArray array];
+    
+    // Model: "<lon>,<lat>,<elevation> <lon>,<lat>,<elevation> ..."
+    
+    // Split string into each set of coordinates ("<lon>,<lat>,<elevation> ")
+    NSMutableArray *arrayOfCoordinates = [NSMutableArray arrayWithArray:[coordinatesStringStrippedOfNewlinesAndTabs componentsSeparatedByString:@" "]];
+    
+    // Check because of the extra "" that is recorded as an element which isnt a coordinate
+    if( [[arrayOfCoordinates lastObject] isEqualToString:@""] ) {
+        [arrayOfCoordinates removeLastObject];
+    }
+    for( int i = 0; i < [arrayOfCoordinates count]; i++ ) {
+        // Make each set of coordinates into a point ("<lon>","<lat>","<elevation>")
+        NSArray *coordinateValues = [[arrayOfCoordinates objectAtIndex:i] componentsSeparatedByString:@","];
+        GPTrackPoint *tempTrackPoint = [[GPTrackPoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([[coordinateValues objectAtIndex:1] doubleValue], [[coordinateValues objectAtIndex:0] doubleValue])];
+        if( [coordinateValues count] > 2 ) {
+            [tempTrackPoint setElevation:[[coordinateValues objectAtIndex:2] doubleValue]];
+        }
+        [arrayOfPoints addObject:tempTrackPoint];
+        [tempTrackPoint release];
+    }
+    
+    return arrayOfPoints;
+}
+
++ (CLLocation*)getSingleCoordinateFromKMLCoordinatesString: (NSString*) coordinatesString {
+    
+    NSString *coordinatesStringStrippedOfNewlinesAndTabs = [NSString stringWithString:[GPUtilities getStringFromStringWithoutNewlineAndTabCharacters:coordinatesString]];
+    NSArray *coordinateValues = [coordinatesStringStrippedOfNewlinesAndTabs componentsSeparatedByString:@","];
+    
+    CLLocation *tempLoc = [[[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake([[coordinateValues objectAtIndex:1] doubleValue], [[coordinateValues objectAtIndex:0] doubleValue]) altitude:[[coordinateValues  objectAtIndex:2] doubleValue] horizontalAccuracy:0 verticalAccuracy:0 timestamp:nil] autorelease];
+    
+    return tempLoc;
+}
 
 +(NSString*)getUUID {
     CFUUIDRef myUUID = CFUUIDCreate(CFAllocatorGetDefault());
@@ -382,8 +503,14 @@
     CFRelease(myUUID);
     return UUIDString;
 }
-       
-       
+         
++(NSString*)getStringFromStringWithoutNewlineAndTabCharacters:(NSString*) string {
+
+    NSString *stringWithoutTabs = [NSString stringWithString:[string stringByReplacingOccurrencesOfString:@"\t" withString:@""]];
+    NSString *stringWithoutTabsAndNewlines = [NSString stringWithString:[stringWithoutTabs stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
+    
+    return stringWithoutTabsAndNewlines;
+}
        
 + (double) CalculateDistanceInPointsInArray: (NSMutableArray*) pointsArray {
     

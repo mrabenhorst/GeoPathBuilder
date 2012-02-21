@@ -41,12 +41,18 @@
 // GPX Utilities
 + (NSString*)dateToGPXFormat: (NSDate*)date;
 + (NSDate*)dateFromGPXFormat: (NSString*) dateString;
-
 + (NSString*)GPBoundsToGPXFormat: (GPBounds) bounds;
-+ (GPXTag)getGPXTagForGPXTagName:(NSString*) tagName;
-+ (GPXElementType)getGPXElementTypeByName:(NSString*) elementName;
++ (GPXTag)getGPXTagForGPXTagName:(NSString*) tagName; // (String -> Enum)
++ (GPXElementType)getGPXElementTypeByName:(NSString*) elementName; // (String -> typeEnum)
+
+// KML Utilities
++ (KMLTag)getKMLTagForKMLTagName:(NSString*) tagName; // (String -> Enum)
++ (KMLElementType)getKMLElementTypeByName:(NSString*) elementName; // (String -> typeEnum)
++ (NSArray*)getArrayOfTrackPointsFromKMLCoordinatesString:(NSString*) coordinatesString;
++ (CLLocation*)getSingleCoordinateFromKMLCoordinatesString: (NSString*) coordinatesString;
 
 + (NSString*)getUUID;
++ (NSString*)getStringFromStringWithoutNewlineAndTabCharacters:(NSString*) string;
 
 + (double) CalculateDistanceInPointsInArray: (NSMutableArray*) pointsArray;
 + (double) CalculateKilometerDistanceFrom: (CLLocationCoordinate2D) point1 To: (CLLocationCoordinate2D) point2;
