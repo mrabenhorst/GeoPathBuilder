@@ -2,6 +2,11 @@ GeoPathBuilder
 
 GeoPathBuilder is a utility object library built for the purpose of helping Geographically minded Objective-C programmers to have an easy to use data class which imports and exports to commonly used file formats. This way, programmers can spend more time "playing with" and interpreting the data and less time trying to figure out how to get the data. 
 
+Features:
+* Import GPX1.1 Files
+* Export GPX1.1 Files
+* Import KML2.2 Files
+
 What makes GeoPathBuilder so easy to use?
 There are several reasons why GeoPathBuilder is the solution of choice - why not start with the fact that importing and exporting data is a one line task? How how about the fact that you can search all points/paths/segments by name or by their UUID? Deleting an element is as easy as saying "delete!" and adding an element is just as easy!
 
