@@ -51,6 +51,7 @@
     [self setLocation:locPoint];
     
     [self setUUID:[GPUtilities getUUID]];
+    [self setTime:[NSDate date]]; // Defaulty sets time to the time it was made so that it shows up
     
     return self;
     
