@@ -26,9 +26,14 @@
 #ifndef GeoPathBuilder_GPConstants_h
 #define GeoPathBuilder_GPConstants_h
 
-/*
- * Structs
-*/
+/***********************************
+ *
+ *
+ *  GEOPATHBUILDER CONSTANTS
+ *
+ *
+ ***********************************/
+
 typedef struct {
     double west;
     double east;
@@ -36,7 +41,15 @@ typedef struct {
     double south;
 } GPBounds;
 
+/***********************************
+ *
+ *
+ *  GPX CONSTANTS
+ *
+ *
+ ***********************************/
 
+// Enumerations
 typedef enum {
     keGPX_MASTER,
     keGPX_WAYPOINT,
@@ -91,9 +104,7 @@ typedef enum {
  *  GPX CONSTANTS
 */
 
-/*
- * Objects
-*/
+// Objects
 #define kGPXTAG_MASTER          @"gpx"
 #define kGPXTAG_WAYPOINT        @"wpt"
 #define kGPXTAG_ROUTE           @"rte"
@@ -102,9 +113,7 @@ typedef enum {
 #define kGPXTAG_TRACKSEG        @"trkseg"
 #define kGPXTAG_TRACKPT         @"trkpt"
 
-/*
- * Attributes
- */
+// Attributes
 #define kGPX_SCHEMA_VERSION     @"1.1"
 #define kGPX_SCHEMA_LOC_ATTR    @"xsi:schemaLocation"
 #define kGPX_SCHEMA_LOC_VAL     @"http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd"
@@ -117,9 +126,7 @@ typedef enum {
 #define kGPX_MINLON             @"minlon"
 #define kGPX_MAXLON             @"maxlon"
 
-/*
- * Properties
- */
+// Properties
 #define kGPXTAG_NAME            @"name"
 #define kGPXTAG_DESCRIPTION     @"desc"
 #define kGPXTAG_CREATOR         @"creator"
@@ -145,5 +152,43 @@ typedef enum {
 #define kGPXTAG_TYPE            @"type"
 
 
+/***********************************
+ *
+ *
+ *  KML CONSTANTS
+ *
+ *
+ ***********************************/
+
+// Enumerations
+typedef enum {
+    keKML_MASTER,
+    keKML_DOCUMENT,
+    keKML_PLACEMARK,
+    keKML_LINE,
+    keKML_POINT,
+    
+    keKML_NAME,
+    keKML_DESCRIPTION,
+    keKML_COORDINATES
+} KMLTag;
+
+typedef enum {
+    keKML_OBJECT,
+    keKML_PROPERTY,
+    keKML_ATTRIBUTE
+} KMLElementType;
+
+// Objects
+#define kKMLTAG_MASTER          @"kml"
+#define kKMLTAG_DOCUMENT        @"Document"
+#define kKMLTAG_PLACEMARK       @"Placemark"
+#define kKMLTAG_LINE            @"LineString"
+#define kKMLTAG_POINT           @"Point"
+
+// Properties
+#define kKMLTAG_NAME            @"name"
+#define kKMLTAG_DESCRIPTION     @"description"
+#define kKMLTAG_COORDINATES     @"coordinates"
 
 #endif
