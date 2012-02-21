@@ -1,10 +1,15 @@
-Project Started: 1/31/12 @ 1:12 EST
+GeoPathBuilder
 
-2/1/12: 
-	Can now use objects to create and export paths/points into basic GPX format with options.
+GeoPathBuilder is a utility object library built for the purpose of helping Geographically minded Objective-C programmers to have an easy to use data class which imports and exports to commonly used file formats. This way, programmers can spend more time "playing with" and interpreting the data and less time trying to figure out how to get the data. 
 
-2/15/12:
-	Added support for importing and exporting Waypoints, Tracks, Track Segments, Track Points, Routes, and Route Points from and to GPX files (see supported tag list for more details)
-	
-2/20/12:
-	Added calculation methods for distance, speed, and elevation for routes and tracks.
+What makes GeoPathBuilder so easy to use?
+There are several reasons why GeoPathBuilder is the solution of choice - why not start with the fact that importing and exporting data is a one line task? How how about the fact that you can search all points/paths/segments by name or by their UUID? Deleting an element is as easy as saying "delete!" and adding an element is just as easy!
+
+So it's easy… but doesn't easy mean simple?
+Not quite. GeoPathBuilder doesn't just consist of easy access methods, but it is powerful too. Ask any track/track segment/route their min/max/avg elevation, speed, ascent, descent, and of course, distance and they will be happy to answer correctly the first time. 
+
+That sounds great! But… I am a programmer, how can I help?
+We welcome everyone to get involved and code new portions of the project. Some of the most important parts are the ability to import and export data files || You can think of some new ways of processing data || You can fill in the blanks where certain elements are not quite compatible. The possibilities are endless.
+
+And lastly… Who can use it, and how?
+In a word: Everyone. This is covered by the MIT license. Free to use for everyone in any way. Enjoy!

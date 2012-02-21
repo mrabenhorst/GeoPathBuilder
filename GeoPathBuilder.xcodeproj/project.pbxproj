@@ -29,7 +29,6 @@
 		5ACECE4414E5B10F00722EC7 /* mystic_basin_trail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5ACECE4314E5B10F00722EC7 /* mystic_basin_trail.gpx */; };
 		5AF8C14414D87DB700958790 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14314D87DB700958790 /* Foundation.framework */; };
 		5AF8C15214D87DB700958790 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C15114D87DB700958790 /* SenTestingKit.framework */; };
-		5AF8C15414D87DB700958790 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C15314D87DB700958790 /* UIKit.framework */; };
 		5AF8C15514D87DB700958790 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14314D87DB700958790 /* Foundation.framework */; };
 		5AF8C15814D87DB700958790 /* libGeoPathBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF8C14014D87DB700958790 /* libGeoPathBuilder.a */; };
 		5AF8C15E14D87DB700958790 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF8C15C14D87DB700958790 /* InfoPlist.strings */; };
@@ -79,7 +78,6 @@
 		5AF8C14714D87DB700958790 /* GeoPathBuilder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoPathBuilder-Prefix.pch"; sourceTree = "<group>"; };
 		5AF8C15014D87DB700958790 /* GeoPathBuilderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoPathBuilderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF8C15114D87DB700958790 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5AF8C15314D87DB700958790 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5AF8C15B14D87DB700958790 /* GeoPathBuilderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeoPathBuilderTests-Info.plist"; sourceTree = "<group>"; };
 		5AF8C15D14D87DB700958790 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AF8C15F14D87DB700958790 /* GeoPathBuilderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoPathBuilderTests.h; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			files = (
 				5AF8C17F14D89C0E00958790 /* CoreLocation.framework in Frameworks */,
 				5AF8C15214D87DB700958790 /* SenTestingKit.framework in Frameworks */,
-				5AF8C15414D87DB700958790 /* UIKit.framework in Frameworks */,
 				5AF8C15514D87DB700958790 /* Foundation.framework in Frameworks */,
 				5AF8C15814D87DB700958790 /* libGeoPathBuilder.a in Frameworks */,
 			);
@@ -166,7 +163,6 @@
 				5AF8C17214D8864100958790 /* CoreLocation.framework */,
 				5AF8C14314D87DB700958790 /* Foundation.framework */,
 				5AF8C15114D87DB700958790 /* SenTestingKit.framework */,
-				5AF8C15314D87DB700958790 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
