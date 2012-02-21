@@ -5,7 +5,7 @@ GeoPathBuilder is a utility object library built for the purpose of helping Geog
 Features:
 * Import GPX1.1 Files
 * Export GPX1.1 Files
-* Import KML2.2 Files
+* Import KML2.2 Files*
 
 What makes GeoPathBuilder so easy to use?
 There are several reasons why GeoPathBuilder is the solution of choice - why not start with the fact that importing and exporting data is a one line task? How how about the fact that you can search all points/paths/segments by name or by their UUID? Deleting an element is as easy as saying "delete!" and adding an element is just as easy!
@@ -18,3 +18,5 @@ We welcome everyone to get involved and code new portions of the project. Some o
 
 And lastly… Who can use it, and how?
 In a word: Everyone. This is covered by the MIT license. Free to use for everyone in any way. Enjoy!
+
+*KML integration is still in the beginning stage of development. Only Points and Lines will correctly import (with only names and descriptions). More changed to come.
