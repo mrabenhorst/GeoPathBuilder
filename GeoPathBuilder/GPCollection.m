@@ -29,6 +29,7 @@
 #import "GPWaypoint.h"
 #import "GPRoute.h"
 #import "GPGPXLoader.h"
+#import "GPKMLLoader.h"
 
 @implementation GPCollection 
 
@@ -270,7 +271,7 @@
     [self updateBounds];
     if( !(self.bounds.north == 0 && self.bounds.south == 0 && self.bounds.east == 0 && self.bounds.west == 0) ) {
         
-        NSArray *values = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%f",self.bounds.north],[NSString stringWithFormat:@"%f",self.bounds.south],[NSString stringWithFormat:@"%f",self.bounds.east],[NSString stringWithFormat:@"%f",self.bounds.west], nil];
+        NSArray *values = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%f",self.bounds.south],[NSString stringWithFormat:@"%f",self.bounds.west],[NSString stringWithFormat:@"%f",self.bounds.north],[NSString stringWithFormat:@"%f",self.bounds.east], nil];
         NSArray *keys = [NSArray arrayWithObjects:@"minlat", @"minlon", @"maxlat", @"maxlon", nil];
         [GPXDataString appendString:[GPUtilities createTagWithName:kGPXTAG_BOUNDS attributeVals:values attributeKeys:keys andValue:@"" useCDATA:FALSE]];
     } 
@@ -326,6 +327,26 @@
         return nil;
     }
 
+}
+
++(id)newCollectionFromKMLFile: (NSData*) kmlFileData {
+    
+    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:kmlFileData];
+    GPKMLLoader *kmlLoader = [[[GPKMLLoader alloc] init] autorelease];
+    
+    [nsXmlParser setDelegate:kmlLoader];
+    
+    BOOL success = [nsXmlParser parse];
+    if( success ) {
+        
+        // get data from gpxLoader
+        return [(GPCollection*)[kmlLoader getCollection] retain];
+    } else {
+        
+        // something very bad happened...
+        return nil;
+    }
+    
 }
 
 -(NSArray*)getAllPoints {

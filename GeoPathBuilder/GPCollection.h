@@ -50,6 +50,7 @@
 // GPCollection creation
 -(id)initWithCreator: (NSString*) creator;
 +(id)newCollectionFromGPXFile: (NSData*) gpxFileData;
++(id)newCollectionFromKMLFile: (NSData*) kmlFileData;
 
 -(NSArray*)getAllPoints;
 -(void)updateBounds;
