@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Keystone XL.kml</name>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>Temporary Places</name>
+		<open>1</open>
+		<Placemark>
+			<name>Pipeline Split</name>
+			<LookAt>
+				<longitude>-94.37210458759405</longitude>
+				<latitude>30.64152386957441</latitude>
+				<altitude>0</altitude>
+				<heading>1.251892755249763</heading>
+				<tilt>0</tilt>
+				<range>41844.72492236464</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-94.42730531188531,30.63000430621253,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hardisty</name>
+			<LookAt>
+				<longitude>-111.291960451413</longitude>
+				<latitude>52.67152966581681</latitude>
+				<altitude>0</altitude>
+				<heading>-11.08036560762368</heading>
+				<tilt>0</tilt>
+				<range>9398.219911999486</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-111.3020060534153,52.66808042805071,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Keystone XL</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-111.3018419805467,52.66781279035665,0 -110.3609758535109,52.22401157691118,0 -110.2608969266251,50.54208876004946,0 -104.0565943800007,45.94662485504521,0 -103.2357033204807,45.59637473944061,0 -99.76434304445512,42.98807431424932,0 -97.02472242583697,40.03105472619166,0 -96.76029440189595,35.97476654262894,0 -96.52288806453072,35.00056558802748,0 -95.66781746074805,33.89399786402002,0 -94.42750309306476,30.63031619958083,0 -93.93992891462185,29.88351230904642,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Steele City Curve</name>
+			<LookAt>
+				<longitude>-97.01842806300522</longitude>
+				<latitude>40.03528042753129</latitude>
+				<altitude>0</altitude>
+				<heading>0.2758417234643769</heading>
+				<tilt>0</tilt>
+				<range>7097.647829759148</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<coordinates>-97.02479509674657,40.03117433467482,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
