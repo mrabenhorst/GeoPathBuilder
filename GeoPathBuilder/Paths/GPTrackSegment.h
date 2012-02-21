@@ -37,6 +37,8 @@
 - (NSObject*)getObjectWithUUID: (NSString*) matchUUID;
 
 -(void)addPoint: (GPTrackPoint*) point;
+-(void)addPointsFromArray: (NSArray*) points;
+
 -(BOOL)removePoint: (GPTrackPoint*) point;
 
 // Returns a string version of the Waypoint in GPX format

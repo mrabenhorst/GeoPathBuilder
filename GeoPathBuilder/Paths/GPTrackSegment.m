@@ -62,6 +62,15 @@
 -(void)addPoint: (GPTrackPoint*) point {
     [geoPoints addObject:point];
 }
+
+-(void)addPointsFromArray: (NSArray*) points {
+    for( int i = 0; i < [points count]; i++ ) {
+        if( [[points objectAtIndex:i] isKindOfClass:[GPTrackPoint class]] ) {
+            [geoPoints addObject:[points objectAtIndex:i]];
+        }
+    }
+}
+
 -(BOOL)removePoint: (GPTrackPoint*) point {
     if( [geoPoints containsObject:point] ) {
         [geoPoints removeObject:point];
